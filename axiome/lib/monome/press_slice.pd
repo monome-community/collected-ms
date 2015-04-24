@@ -1,0 +1,16 @@
+#N canvas 230 62 166 214 10;
+#X obj 31 18 r matrix-in;
+#X obj 31 45 unpack f f f;
+#X obj 31 118 spigot;
+#X obj 74 93 &&;
+#X obj 65 69 == \$1;
+#X obj 100 69 == 1;
+#X obj 31 145 s \$1-press;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 1 4 0;
+#X connect 1 2 5 0;
+#X connect 2 0 6 0;
+#X connect 3 0 2 1;
+#X connect 4 0 3 0;
+#X connect 5 0 3 1;

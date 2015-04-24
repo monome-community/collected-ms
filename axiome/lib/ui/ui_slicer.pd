@@ -1,0 +1,46 @@
+#N canvas 98 544 636 105 10;
+#X obj 20 22 vsl 10 25 0 1 0 0 dummy dummy \$1 4 7 1 9 -158913 -158913
+-262144 0 1;
+#X obj 30 22 vsl 90 10 0 127 0 0 dummy ui-slicer-title-box SAMPLE 4
+6 0 9 -245500 -245500 -66577 0 0;
+#X obj 30 37 vsl 150 10 0 127 0 0 dummy \$1-filename-display --- 5
+7 0 8 -245500 -245500 -99865 0 0;
+#X obj 120 22 vsl 30 10 0 127 0 0 \$1-load-smp-ctrl \$1-load-smp-ctrl-r
+load 7 6 1 9 -245500 -245500 -1 0 0;
+#X obj 150 22 vsl 30 10 0 127 0 0 \$1-clear-smp-ctrl \$1-clear-smp-ctrl-r
+clear 5 6 1 9 -245500 -245500 -1 300 0;
+#X obj 180 37 vsl 60 10 0 3 0 0 \$1-len-ctrl \$1-len-ctrl-r length:1bar
+3 6 1 9 -245500 -245500 -1 300 1;
+#X obj 240 37 vsl 60 10 0.5 2 0 0 \$1-pitch-ctrl \$1-pitch-ctrl-r pitch:1x
+3 6 1 9 -245500 -245500 -1 300 1;
+#X obj 300 37 vsl 33 10 1 64 0 0 \$1-rec-len-ctrl \$1-rec-len-ctrl-r
+32/16 5 6 1 9 -216373 -216373 -1 443 1;
+#X obj 333 37 vsl 57 10 0 1 0 0 \$1-rec-ready-ctrl \$1-rec-ready-ctrl-r
+record 3 6 1 9 -216373 -216373 -1 0 0;
+#X obj 390 37 vsl 15 10 0 1 0 0 \$1-0-press \$1-0-press-r empty 3 6
+0 9 -228856 -228856 -66577 0 0;
+#X obj 405 37 vsl 15 10 0 127 0 0 \$1-1-press \$1-1-press-r empty 3
+6 0 9 -228856 -228856 -66577 0 0;
+#X obj 420 37 vsl 15 10 0 127 0 0 \$1-2-press \$1-2-press-r empty 3
+6 0 9 -228856 -228856 -66577 0 0;
+#X obj 435 37 vsl 15 10 0 127 0 0 \$1-3-press \$1-3-press-r empty 3
+6 0 9 -228856 -228856 -66577 0 0;
+#X obj 450 37 vsl 15 10 0 127 0 0 \$1-4-press \$1-4-press-r empty 3
+6 0 9 -228856 -228856 -66577 0 0;
+#X obj 465 37 vsl 15 10 0 127 0 0 \$1-5-press \$1-5-press-r empty 3
+6 0 9 -228856 -228856 -66577 0 0;
+#X obj 480 37 vsl 15 10 0 127 0 0 \$1-6-press \$1-6-press-r empty 3
+6 0 9 -228856 -228856 -66577 0 0;
+#X obj 495 37 vsl 15 10 0 127 0 0 \$1-7-press \$1-7-press-r empty 3
+6 0 9 -228856 -228856 -66577 0 0;
+#X obj 391 36 cnv 12 13 13 dummy \$1-slice-cnv-r empty 20 12 0 14 -212929
+-66577 0;
+#X obj 180 22 vsl 60 10 0 3 0 0 \$1-slices-ctrl \$1-slices-ctrl-r slices:32
+3 6 1 9 -245500 -245500 -1 600 1;
+#X obj 240 22 vsl 60 10 1 3 0 0 \$1-poly-ctrl \$1-poly-ctrl-r poly:1
+3 6 1 9 -245500 -245500 -1 0 1;
+#X obj 300 22 vsl 90 10 0 127 0 0 dummy ui-slicer-title-box PATTERN
+4 6 0 9 -216373 -216373 -66577 0 0;
+#X obj 390 22 vsl 120 10 0 127 0 0 \$1-stop-ctrl \$1-stop-ctrl-r STOPPED
+4 6 0 9 -228856 -228856 -66577 0 0;
+#X coords 0 -1 1 1 490 30 2 20 20;

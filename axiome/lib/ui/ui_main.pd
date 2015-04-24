@@ -1,0 +1,23 @@
+#N canvas 122 41 503 418 10;
+#X obj -22 -24 cnv 15 500 400 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj -7 -17 vsl 50 15 0 127 0 0 main-enable-ctrl main-enable-ctrl-r
+RUNNING 3 8 0 9 -262144 -262144 -1 500 0;
+#X obj 46 -19 hsl 50 20 40 220 0 0 main-bpm-ctrl main-bpm-ctrl-r 85bpm
+1 10 0 9 -262144 -262144 -1 1225 1;
+#X obj 98 -17 vsl 290 15 0 127 0 0 dummy top-display-r empty 5 8 0
+9 -262144 -262144 -158913 0 0;
+#X obj -17 219 ui_mixer;
+#X obj 383 -17 vsl 45 15 0 127 0 0 state-load-ctrl state-load-ctrl-r
+load 9 8 0 9 -262144 -262144 -1 600 0;
+#X obj 428 -17 vsl 45 15 0 127 0 0 state-save-ctrl state-save-ctrl-r
+save 9 8 0 9 -262144 -262144 -1 0 0;
+#X obj -17 -17 vsl 10 15 0 1 0 0 dummy dummy > 3 9 1 10 -158913 -158913
+-262144 0 1;
+#X obj -17 6 ui_slicer 1;
+#X obj -17 36 ui_slicer 2;
+#X obj -17 66 ui_slicer 3;
+#X obj -17 96 ui_slicer 4;
+#X obj -17 126 ui_slicer 5;
+#X obj -17 156 ui_slicer 6;
+#X obj -17 184 ui_slicer 7;

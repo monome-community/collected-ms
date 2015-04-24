@@ -1,0 +1,37 @@
+--------------------------------------------------------------------
+#	Axiome O.1 - 2008.09.18
+#	http://www.lsxdesign.net/Puredata/Axiome
+--------------------------------------------------------------------
+#	MANUAL
+--------------------------------------------------------------------
+#	To play a slicer, you have to push one of the eight right-most
+#	buttons. The sample starts at the position of the button (sample
+#	apportionned on the eight buttons, even if it's 4bars length).
+#	To stop the sample, press "PLAYING" (i know this is not common
+#	sense, but wait for the next release...).
+#
+#	The sample-cutter (eight buttons) actions are quantized to 1/16.
+#	So you can start a loop and when it comes at the end, start a
+#	second one. If you get the good 1/16 timing, it will sync to
+#	the first one. And so on...
+#
+#	Now, the pattern section (darker grey):
+#	A pattern is a recording of actions on the cutter-buttons.
+#	Set the length (in 1/16). Press "record" -> it shows "press",
+#	waiting for a press on one of the cutter-buttons (not
+#	necessarily the first one) to start recording.
+#	You can cancel record-enabled, recording or playing states
+#	anytime by hitting the record button again.
+#
+#	So, if you enable record and press a cutter-button, you start
+#	the record counter (record button becomes labelled "recording").
+#	Play on the cutter-buttons to record a pattern loop.
+#	At the end of the record loop, the pattern recording plays back
+#	automatically what you've just played and becomes "playing".
+#	You can stop the slicer (press "PLAYING"), but the pattern is
+#	still playing in the background until you press ("playing") to
+#	stop it. You can start the slicer again (press any cutter-button
+#	and the pattern plays at its current position).
+#
+#	Have Fun!
+--------------------------------------------------------------------

@@ -1,0 +1,56 @@
+#N canvas 413 369 399 196 10;
+#X obj 20 20 cnv 10 10 145 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 21 21 cnv 10 8 143 empty empty empty 20 12 0 14 -158913 -66577
+0;
+#X obj 170 35 vsl 30 115 0 100 0 0 main-level-ctrl main-level-ctrl-r
+empty 1 -8 0 10 -99865 -191407 -1 10716 1;
+#X obj 30 57 vsl 20 105 0 1 0 0 1-gain 1-gain-r empty 0 -9 0 10 -66577
+-162280 -1 4888 0;
+#X obj 50 57 vsl 20 105 0 1 0 0 2-gain 2-gain-r empty 0 -9 0 10 -66577
+-162280 -1 4888 0;
+#X obj 70 57 vsl 20 105 0 1 0 0 3-gain 3-gain-r empty 0 -9 0 10 -66577
+-162280 -1 4888 0;
+#X obj 90 57 vsl 20 105 0 1 0 0 4-gain 4-gain-r empty 0 -9 0 10 -66577
+-162280 -1 4888 0;
+#X obj 110 57 vsl 20 105 0 1 0 0 5-gain 5-gain-r empty 0 -9 0 10 -66577
+-162280 -1 4888 0;
+#X obj 130 57 vsl 20 105 0 1 0 0 6-gain 6-gain-r empty 0 -9 0 10 -66577
+-162280 -1 4888 0;
+#X obj 40 22 vsl 10 30 0 1 0 0 1-fx2-send-ctrl 1-fx2-send-ctrl-r empty
+0 -9 0 10 -66577 -162280 -1 0 1;
+#X obj 30 22 vsl 10 30 0 1 0 0 1-fx1-send-ctrl 1-fx1-send-ctrl-r empty
+0 -9 0 10 -66577 -162280 -1 0 1;
+#X obj 60 22 vsl 10 30 0 1 0 0 2-fx2-send-ctrl 2-fx2-send-ctrl-r empty
+0 -9 0 10 -66577 -162280 -1 0 1;
+#X obj 50 22 vsl 10 30 0 1 0 0 2-fx1-send-ctrl 2-fx1-send-ctrl-r empty
+0 -9 0 10 -66577 -162280 -1 0 1;
+#X obj 80 22 vsl 10 30 0 1 0 0 3-fx2-send-ctrl 3-fx2-send-ctrl-r empty
+0 -9 0 10 -66577 -162280 -1 0 1;
+#X obj 70 22 vsl 10 30 0 127 0 0 3-fx1-send-ctrl 3-fx1-send-ctrl-r
+empty 0 -9 0 10 -66577 -162280 -1 0 1;
+#X obj 100 22 vsl 10 30 0 1 0 0 4-fx2-send-ctrl 4-fx2-send-ctrl-r empty
+0 -9 0 10 -66577 -162280 -1 0 1;
+#X obj 90 22 vsl 10 30 0 1 0 0 4-fx1-send-ctrl 4-fx1-send-ctrl-r empty
+0 -9 0 10 -66577 -162280 -1 0 1;
+#X obj 120 22 vsl 10 30 0 1 0 0 5-fx2-send-ctrl 5-fx2-send-ctrl-r empty
+0 -9 0 10 -66577 -162280 -1 0 1;
+#X obj 110 22 vsl 10 30 0 1 0 0 5-fx1-send-ctrl 5-fx1-send-ctrl-r empty
+0 -9 0 10 -66577 -162280 -1 0 1;
+#X obj 140 22 vsl 10 30 0 1 0 0 6-fx2-send-ctrl 6-fx2-send-ctrl-r empty
+0 -9 0 10 -66577 -162280 -1 0 1;
+#X obj 130 22 vsl 10 30 0 1 0 0 6-fx1-send-ctrl 6-fx1-send-ctrl-r empty
+0 -9 0 10 -66577 -162280 -1 0 1;
+#X obj 170 20 cnv 8 30 13 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 171 21 cnv 8 28 11 empty main-level-cnv-r -6dB 1 7 1 9 -104833
+-212929 0;
+#X obj 150 57 vsl 20 105 0 1 0 0 7-gain 7-gain-r empty 0 -9 0 10 -66577
+-162280 -1 4888 0;
+#X obj 160 22 vsl 10 30 0 1 0 0 7-fx2-send-ctrl 7-fx2-send-ctrl-r empty
+0 -9 0 10 -66577 -162280 -1 0 1;
+#X obj 150 22 vsl 10 30 0 1 0 0 7-fx1-send-ctrl 7-fx1-send-ctrl-r empty
+0 -9 0 10 -66577 -162280 -1 0 1;
+#X obj 170 155 vsl 30 7 0 100 0 0 main-mute-ctrl main-mute-ctrl-r mute
+3 3 0 9 -262144 -262144 -1 0 1;
+#X coords 0 -1 1 1 180 145 2 20 20;
