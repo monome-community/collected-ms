@@ -1,0 +1,285 @@
+# tintinnabulome
+
+a modal arpeggiator fitted to the decoupled grid of the monome
+
+**created by**: Stretta
+
+**contributions by**: occular
+
+**idea by**: Tetramorph
+
+**prefix**: tin
+
+
+## quick start
+
+
+- monomeserial prefix must be set to tin. Click the initialise message box to set this up.
+- make sure the internal clock is running. This is on by defailt upon opening.
+- set valid MIDI destinations with the MIDI assignment drop-down menus. 
+- (optional) configure tilt setup and click checkboxes to enable tilt control of arpeggio direction and range mode, MIDI CC data or OSC message data
+- set up an arpeggio pattern using the tick boxes in the GUI (or through "edit mode," see below)
+- play using the rate columns and hold row at top
+
+![](tin_0.94.png)
+
+## operation
+
+
+
+### MODES
+
+
+There are two modes: play mode and edit mode. The modes can be toggled by pressing the top right (by default) mode button. The mode button LED is off in play mode and lighted in edit mode.
+
+
+### PLAY MODE
+
+
+Play mode uses the monome device in the following configuration: 
+
+  * rate columns (for the defined arpeggios)
+  * hold row (one hold button per rate column along top row)
+    * degree column (along far right side, by default)
+
+
+
+### RATE COLUMNS
+
+There are seven "play" or rate columns of seven buttons each, starting from the bottom going up. Each button sets a rate of arpeggiation relative to the clock. The bottom most button sets a 1/16th note rate. Each successive higher button slows down the pattern with a whole note as the slowest possible rate. Rate affects also the note duration of the sequence. The slower the rate, the longer the note duration. When a rate button is released, that arpeggio ceases to play unless a column's hold button is on.
+
+### HOLD ROW
+
+The top row of buttons above the rate columns provides "latch" or hold buttons for each column. The rate can still be changed while a hold button is on.
+
+### DEGREE COLUMN
+
+This is the far right (by default) column on the monome device. In play mode it controls the relative scale degree of the arpeggiations, e.g., the I, II, III, etc., chord within a given mode. (In edit mode it selects the modal scale relative to the key.)
+
+
+## EDIT MODE
+
+
+
+Edit mode uses the monome device in the following configuration: 
+
+*degree column (along far right side, by default)
+*page row (top row selects various edit pages)
+*definition buttons (the rest of the buttons define a given parameter per edit page)
+
+### DEGREE COLUMN
+
+As in play mode, this is the far right (by default) column on the monome device. In edit mode, however, it selects the modal scale relative to the key, e.g., aeolian, ionian, lydian, etc., with F, G, A, etc., defined as the tonic of the key. (This is as opposed to play mode, where it controls the relative scale degree of the arpeggiations.)
+
+### PAGE ROW
+
+When switching to the edit mode by pressing the mode button, the hold row buttons becomes page selection buttons.The first page starts immediately top far left (by default).
+
+### DEFINITION BUTTONS
+
+In edit mode the rest of the buttons of the monome device define parameters specific to each edit page.
+
+## EDIT PAGES
+
+
+=== 1: NOTE SET PAGE ===
+
+Noteset page is the first page in edit mode. It allows note selection on each play column. These may be altered during play if (a) hold button/s were engaged in play mode.
+
+=== 2: ARPEGGIO / SHIFT PAGE ===
+
+Arpeggio / Shift page is the second page in edit mode. This allows switching between homophonic mode, up, down and random arpeggiation. The 5th button is reserved for further modifications ( e.g., up/down, when developed). The last two buttons on the bottom allow octave shifting up and down, respectively. Again, as with note set page, above, these may be altered during play if (a) hold button/s were engaged in play mode.
+
+=== 3: VELOCITY PAGE ===
+
+Velocity page enables alteration of velocity value for each play column. Again, as with other edit pages, velocity may be altered during play if (a) hold button/s were engaged in play mode.
+
+=== 4-6: BLANK PAGES ===
+
+These pages are currently blank and reserved for future development.
+
+=== 7: PRESET PAGE ===
+
+Preset page is the seventh page in edit mode. There are 49 preset slots. To save a preset to a slot, hold the preset page button continuously while pressing the desired slot button. To recall a preset, simply select the preset page and, after releasing the preset page select button, press the desired slot buton. As with other edit pages, presets may be recalled during play "on the fly" if (a) hold button/s were engaged when the preset was recorded.
+
+
+## graphic user interface
+
+
+
+
+## SETUP
+
+
+### HOST PORTS
+
+Allows changes to the listen host ports. Please change to the same ports in monomeSerial, etc.
+
+### ORIENTATION
+
+Orientation button allows for the remapping of the degree column to the right or left side of the monome device. This remaps the mode button to the top far right or left, respectively. 
+
+### MODE FUNCTION
+
+Mode function button allows for a choice between hold (default) and snap back behavior for the mode button. In hold functionality, the mode button holds on the selected mode as it switches between Play and Edit modes.  In snap back functionality, the mode button only switches to edit mode while continuously depressed. When released the mode "snaps back" to play.
+
+### INITIALISE
+
+This button sends the -tin- prefix to monomeSerial. It also returns the orientation of the degree column to its default right position and the mode function to its default hold functionality. This button is also useful as it will initialise everything in the patch, should things get messy.
+
+### VELOCITY INTERPOLATION TIME
+
+This sets the interpolation time of the velocity slider. Default is 300.
+
+
+## CLOCK (SYNC)
+
+
+tintinnabulome can sync to other applications. Select 'beat clock' as source and select a MIDI port that sync is being set to from the external application. To sync tintinnabulome from another Max app, send bangs to tin_pulse and turn off tintinabulome's internal clock. 
+
+
+## MODALITY
+
+
+tintinnabulome only allows for tonal harmony based upon modal scales. The modality UI allows for the selection of the tonic note of the scale ("key") and the modal scale type. It also displays the currently selected chord scale within the given mode with respect to the tonic.
+
+
+## TILT
+
+
+Click the tilt setup button to calibrate tilt. Tilt output can be sent to any combination of arpeggio direction and mode, MIDI CC data or send OSC message data.
+
+
+## PRESETS
+
+
+Allows all 49 presets to be saved as an XML file by selecting the write button on the UI. Upon restart the XML file can be uploaded by selecting the read button on the UI.
+
+
+## MATRIX
+
+
+The matrix shows which page is currently selected and the monome matrix graphic indicates current LED data. The monome matrix graphic itself is for display purposes only.
+
+
+
+For visual explantation please refer to the visual overview.pdf
+
+
+## CHANGELOG
+
+
+
+
+### CHANGES v0.94
+
+( occular mod )
+
+Revamped user interface
+Revamped monome layout to two layer-structure:	
+* play mode
+* edit mode
+Added velocity page
+Added shift control on arpeggio page
+Added chord scale control-column
+Added orientation switch on the GUI
+Added clock options to preset system
+Added midi ports and channels to preset system
+Extended mode function button to hold/snap back on the GUI
+Fixed an issue with tilt listen ports
+Fixed note duration issue (stretta)
+
+
+### CHANGES v0.93
+
+( occular mod )
+
+Changed monome layout to page structure:
+* noteset mode
+* arp/hold mode
+* rate mode
+Changed scale degree to the far left
+Added preset system
+Added host ports switch
+Added initialise button
+Added page display over LED matrix
+Added church-artwork
+Added visual explantation to the doc
+Fixed an -out of range- issue
+
+
+### CHANGES v0.85
+
+
+Added tilt support
+
+
+### CHANGES v0.84
+
+
+Fixed an issue where note duration scale wouldn't update until tempo was touched
+Fixed an issue where chord scale wouldn't update until degree was touched
+Added range control and mode to arpeggiator
+
+
+### CHANGES v0.83
+
+
+Fixed homophonic issue
+
+
+### CHANGES v0.801_occ_0.2
+
+
+Fixed external clock sync issue
+
+
+### CHANGES v0.801_occ_0.1
+
+( occular mod )
+
+Added noteset mode
+Added arpeggio switch
+
+
+### CHANGES v0.801
+
+
+Fixed stuck notes issue
+Fixed scale degree issue
+
+
+### CHANGES v0.80
+
+
+Initial release
+
+
+**download**
+
+Current build, version 0.94 by occular {{:app:tintinnabulome_0.94.zip|}}
+
+**media**
+
+http://vimeo.com/3170703
+
+* vimeo "tintinnabulome" tag:
+
+http://vimeo.com/tag:tintinnabulome
+
+* an example from dadek that sounds remarkeably close to Pärt's own music:
+
+http://soundcloud.com/dadek/tin-one
+
+
+
+
+**background**
+
+Composer Arvo Pärt, a "sacred" minimalist, has developed a compositional technique called "tintinnabulation."
+
+http://en.wikipedia.org/wiki/Arvo_Part
+
+http://en.wikipedia.org/wiki/Tintinnabulation
+
+In its strictest sense, tintinnabulation is a compositional device where one "voice" arpeggiates the tonic triad while another "voice" simply moves stepwise up (and down) the given scale or mode. In practice it can be a bit more varied. Tintinnabulome, as a modal arpeggiator, creatively pairs the compositional device of tintinnabulation with the "decoupled grid" of the monome. So (sacred) minimalist technique meets (technological) minimalist interface.

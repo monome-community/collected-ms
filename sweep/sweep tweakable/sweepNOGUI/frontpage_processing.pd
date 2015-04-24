@@ -1,0 +1,13 @@
+#N canvas 501 333 499 350 10;
+#X obj 31 28 r row_choice;
+#X floatatom 127 45 5 0 0 0 - - -;
+#X obj 31 62 + 1;
+#X floatatom 31 82 5 0 0 0 - - -;
+#X obj 31 99 s grid_address;
+#X obj 162 59 s control_address;
+#X connect 0 0 1 0;
+#X connect 0 0 2 0;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X coords 0 0 1 1 85 60 0;

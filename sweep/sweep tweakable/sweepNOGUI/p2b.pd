@@ -1,0 +1,26 @@
+#N canvas 1045 24 315 363 10;
+#X obj 63 144 ==;
+#X obj 120 144 ==;
+#X obj 177 127 inlet;
+#X obj 214 127 inlet;
+#X obj 177 161 &&;
+#X obj 177 261 tgl 15 0 empty empty empty 0 -6 0 10 -262144 -1 -1 0
+1;
+#X obj 63 58 unpack f f;
+#X obj 177 279 outlet;
+#X msg 177 181 0;
+#X obj 177 241 pipe 2;
+#X text 45 314 press-to-blink;
+#X obj 63 38 r north_controls;
+#X connect 0 0 4 0;
+#X connect 1 0 4 1;
+#X connect 2 0 0 1;
+#X connect 3 0 1 1;
+#X connect 4 0 8 0;
+#X connect 4 0 9 0;
+#X connect 5 0 7 0;
+#X connect 6 0 0 0;
+#X connect 6 1 1 0;
+#X connect 8 0 5 0;
+#X connect 9 0 5 0;
+#X connect 11 0 6 0;

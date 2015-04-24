@@ -1,0 +1,10 @@
+#N canvas 766 217 421 223 10;
+#X obj 70 32 inlet;
+#X obj 70 53 route 0;
+#X obj 70 106 gesture_parse \$1 \$2;
+#X obj 70 146 s \$3;
+#X obj 116 79 s \$1-column;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 1 4 0;
+#X connect 2 0 3 0;

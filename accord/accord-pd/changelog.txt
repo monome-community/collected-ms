@@ -1,0 +1,17 @@
+ACCORD FOR PUREDATA
+
+v0.3
+
+- improve chord and arpeggio handling
+- much better LEDs
+- minor improvements
+
+v0.2
+
+- added LED support
+- added MIDI sync
+- tidied up interface
+
+v0.1 
+
+- initial verion

@@ -1,0 +1,28 @@
+#N canvas 0 0 454 304 10;
+#X obj 108 213 f2met;
+#X obj 108 165 sliderh 36 0 15;
+#X obj 108 233 l2s;
+#X floatatom 271 230 5 0 0 0 - - -;
+#X obj 307 205 60000;
+#X obj 307 244 /;
+#X obj 307 264 / 14;
+#X floatatom 339 281 5 0 0 0 - - -;
+#X obj 339 298 s tc1;
+#X msg 108 253 \; d_disp1 label \$1 /;
+#X obj 242 195 bng 10 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X msg 108 87 36;
+#X obj 108 66 loadbang;
+#X connect 0 0 2 0;
+#X connect 0 0 3 0;
+#X connect 1 0 0 0;
+#X connect 1 0 10 0;
+#X connect 2 0 9 0;
+#X connect 3 0 5 1;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 10 0 4 0;
+#X connect 11 0 1 0;
+#X connect 12 0 11 0;

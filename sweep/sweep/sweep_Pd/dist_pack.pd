@@ -1,0 +1,20 @@
+#N canvas 1303 284 223 261 10;
+#X obj 62 101 pack f f;
+#X msg 107 49 \$1;
+#X obj 90 66 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144 -1
+-1;
+#X obj 62 196 inlet;
+#X obj 62 121 outlet;
+#X obj 137 32 inlet;
+#X floatatom 62 81 2 0 0 0 - - -;
+#X msg 62 176 set \$1;
+#X obj 42 49 pipe 1;
+#X connect 0 0 4 0;
+#X connect 1 0 0 1;
+#X connect 2 0 6 0;
+#X connect 3 0 7 0;
+#X connect 5 0 1 0;
+#X connect 5 0 8 0;
+#X connect 6 0 0 0;
+#X connect 7 0 6 0;
+#X connect 8 0 2 0;
