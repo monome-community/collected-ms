@@ -1,0 +1,40 @@
+INFO
+
+	PUMA (PUredata Monome Abstractions) is a collection of
+	objects/abstractions for the Puredata dataflow environment which 
+	goal is to facilitate and speed up the development of monome 
+	applications inside the Puredata environment.
+
+	This package contains the objects (see the install section below), 
+	and a help file, which will show you how to use the objects, and 
+	a logo which is used by the help file, along with this README file 
+	and a COPYRIGHT file.
+
+RELEASE LOG:
+
+	0.1: Initial release
+		-added puma.press.switch
+		-added puma.press.repeat
+		-added puma.press.mono
+		-added puma.led.toggle
+		-added puma.led.slider
+		-added puma.led.monot
+		-added puma.led.mono
+		-added puma.led.blink
+
+DEPENDENCIES
+
+	Very few dependencies needed. At the least you will need mrpeach 
+	for the OSC objects. That's it!
+	If you have Pd-extended it is already installed. Just make sure 
+	there is a path pointing at it in the preferences.
+
+INSTALL:
+
+	To ease the use of the library, you should place it anywhere
+	convenient for you (inside [path-to-pd/extra] is a good idea) and 
+	add a path inside the preferences of Pd to point to the puma folder.
+	
+AUTHOR:
+
+	puma was patched by seegwen <gwen@coffy.name>

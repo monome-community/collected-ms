@@ -1,0 +1,441 @@
+#N canvas 752 207 435 332 10;
+#X obj 116 37 image puma-logo.gif;
+#X obj 35 180 tgl 15 0 puma.led.monot-vis puma.led.monot-vis-r PUMA.LED.MONOT
+18 8 1 11 -262144 -1 -1 0 1;
+#X obj 35 160 tgl 15 0 puma.led.mono-vis puma.led.mono-vis-r PUMA.LED.MONO
+18 8 1 11 -262144 -1 -1 0 1;
+#X obj 35 200 tgl 15 0 puma.led.blink-vis puma.led.blink-vis-r PUMA.LED.BLINK
+18 8 1 11 -262144 -1 -1 0 1;
+#X obj 35 220 tgl 15 0 puma.led.slider-vis puma.led.slider-vis-r PUMA.LED.SLIDER
+18 8 1 11 -262144 -1 -1 0 1;
+#X obj 35 240 tgl 15 0 puma.led.toggle-vis puma.led.toggle-vis-r PUMA.LED.TOGGLE
+18 8 1 11 -262144 -1 -1 0 1;
+#X obj 235 160 tgl 15 0 puma.press.mono-vis puma.press.mono-vis-r PUMA.PRESS.MONO
+18 8 1 11 -262144 -1 -1 0 1;
+#X obj 235 180 tgl 15 0 puma.press.repeat-vis puma.press.repeat-vis-r
+PUMA.PRESS.REPEAT 18 8 1 11 -262144 -1 -1 0 1;
+#X obj 235 200 tgl 15 0 puma.press.switch-vis puma.press.switch-vis-r
+PUMA.PRESS.SWITCH 18 8 1 11 -262144 -1 -1 0 1;
+#N canvas 0 0 494 329 helpfiles 0;
+#N canvas 88 421 647 365 puma.led.mono.help 0;
+#X obj 29 309 s monome.led;
+#X obj 56 285 print;
+#X text 51 244 creation arguments: start_x \, start_y \, len_x \, len_y
+;
+#X text 113 303 this sends to puma.connect \, though man can connect
+to the monome in another way.;
+#X obj 29 204 puma.led.mono 1 1 6 2;
+#X floatatom 29 100 5 0 11 0 - - -;
+#X msg 57 145 coords 1 3 6 2;
+#X text 161 141 You can reset it's coords by sending a "coords" message
+to the left inlet following by the 4 standard coordinates values.;
+#X text 73 94 sending an int representing the ID to it's left inlet
+will light up the according led and clear the last lighten up led.
+;
+#X text 28 32 PURPOSE/BEHAVIOUR:;
+#X text 143 31 puma.led.mono lights up one led at a time on the defined
+area of the monome.;
+#X msg 67 165 coords 1 1 6 2;
+#X text 255 196 a "clear" message at the right inlet will clear the
+last led lighten up \, a "redraw" messages draws it back.;
+#X msg 200 184 clear;
+#X msg 200 204 redraw;
+#X connect 4 0 1 0;
+#X connect 4 0 0 0;
+#X connect 5 0 4 0;
+#X connect 6 0 4 0;
+#X connect 11 0 4 0;
+#X connect 13 0 4 1;
+#X connect 14 0 4 1;
+#X restore 29 121 pd puma.led.mono.help;
+#N canvas 88 421 656 603 puma.led.blink.help 0;
+#X obj 39 532 s monome.led;
+#X obj 66 508 print;
+#X obj 168 347 metro 50;
+#X obj 168 328 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 168 368 i 0;
+#X obj 198 368 + 1;
+#X obj 39 427 puma.led.blink 1 1 6 2;
+#X text 61 487 creation arguments: start_x \, start_y \, len_x \, len_y
+;
+#X text 123 526 this sends to puma.connect \, though man can connect
+to the monome in another way.;
+#X text 226 346 puma.led.blink needs a clock on the right inlet. You
+can feed your patch clock or anything else \, provided it's an incremental
+counter with a step of 1;
+#X text 244 70 message format is: ID \, state;
+#X text 254 90 where state can be:;
+#X text 291 110 0 = off;
+#X text 291 130 1 = steady on;
+#X text 291 150 other = on and off at the modulo of the clock;
+#X msg 39 81 0 1;
+#X msg 39 61 0 0;
+#X msg 77 81 1 1;
+#X msg 77 61 1 0;
+#X text 291 170 the bigger \, the slower the blinking;
+#X text 110 80 ON;
+#X text 110 100 SLOW (could be slower);
+#X text 110 120 FASTER;
+#X text 110 140 EVEN FASTER;
+#X text 110 60 OFF;
+#X msg 104 215 0 4 \, 1 8 \, 2 9 \, 3 5 \, 4 5 \, 5 9 \, 9 7 \, 10
+8 \, 11 5 \, 12 9;
+#X text 103 198 Off course \, you can send messages sequentially;
+#X text 110 160 EVEN EVEN FASTER;
+#X msg 78 161 1 2;
+#X msg 39 161 0 2;
+#X msg 39 141 0 4;
+#X msg 78 141 1 4;
+#X msg 39 101 0 12;
+#X msg 77 101 1 12;
+#X msg 39 121 0 8;
+#X msg 78 121 1 8;
+#X text 28 22 PURPOSE/BEHAVIOUR:;
+#X text 143 21 puma.led.blink lets the user define multiple states
+on single leds by enabling different blinking speeds to be set.;
+#X msg 116 285 coords 1 1 6 2;
+#X msg 106 265 coords 1 3 3 4;
+#X msg 127 305 coords 0 0 8 2;
+#X text 210 261 You can reset it's coords by sending a "coords" message
+to the left inlet followed by the 4 standard coordinates values.;
+#X text 252 420 a "clear" message at the right inlet will reset every
+led to "off" \, "redraw" will draw them back.;
+#X msg 200 407 clear;
+#X msg 200 427 redraw;
+#X msg 200 447 reset;
+#X text 251 447 "reset" will reset the states of the leds to 0;
+#X connect 2 0 4 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X connect 4 0 6 1;
+#X connect 5 0 4 1;
+#X connect 6 0 1 0;
+#X connect 6 0 0 0;
+#X connect 15 0 6 0;
+#X connect 16 0 6 0;
+#X connect 17 0 6 0;
+#X connect 18 0 6 0;
+#X connect 25 0 6 0;
+#X connect 28 0 6 0;
+#X connect 29 0 6 0;
+#X connect 30 0 6 0;
+#X connect 31 0 6 0;
+#X connect 32 0 6 0;
+#X connect 33 0 6 0;
+#X connect 34 0 6 0;
+#X connect 35 0 6 0;
+#X connect 38 0 6 0;
+#X connect 39 0 6 0;
+#X connect 40 0 6 0;
+#X connect 43 0 6 1;
+#X connect 44 0 6 1;
+#X connect 45 0 6 1;
+#X restore 29 181 pd puma.led.blink.help;
+#N canvas 88 421 676 646 puma.led.monot.help 0;
+#X obj 29 599 s monome.led;
+#X obj 56 575 print;
+#X msg 222 474 clear;
+#X text 113 593 this sends to puma.connect \, though man can connect
+to the monome in another way.;
+#X floatatom 29 256 5 0 7 0 - - -;
+#X text 28 12 PURPOSE/BEHAVIOUR:;
+#X obj 29 474 puma.led.monot 0 1 8 1;
+#X msg 77 273 coords 0 3 8 1;
+#X msg 87 293 coords 0 4 4 2;
+#X obj 29 137 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 29 214 i 0;
+#X obj 59 214 + 1;
+#X obj 29 235 mod 8;
+#X msg 222 382 bang;
+#X obj 222 402 t b b;
+#X text 284 470 a "clear" message at the right inlet will clear the
+last lighten up led. Note that for this to be effective \, you must
+stop feeding the left inlet before clearing the area. In reality \,
+you would want to use this feature in the case where you want the last
+led (which is going to turn off anyway) to be cleared immediately.
+;
+#X msg 97 313 coords 2 0 1 8;
+#X msg 107 333 coords 2 0 2 4;
+#X msg 249 421 0;
+#X text 257 383 Stop the clock and clear the area immediately.;
+#X obj 249 444 s \$0-clock-enable;
+#X obj 29 70 r \$0-clock-enable;
+#X floatatom 74 143 5 100 300 0 - - -;
+#X obj 91 162 s \$0-timing;
+#X obj 225 324 r \$0-timing;
+#X text 186 268 You can reset it's coords by sending a "coords" message
+to the left inlet following by 4 coordinates values in the format of
+the creation arguments.;
+#X text 143 11 puma.led.monot lights up a transitionnal led on the
+defined area.;
+#X text 22 42 CREATION ARGUMENTS: start_x \, start_y \, len_x \, len_y
+;
+#X obj 74 102 loadbang;
+#X obj 29 193 metro;
+#X msg 74 124 300;
+#X text 305 322 the object needs an integer on the right inlet corresponding
+to the actual length in ms between the steps feeding the left inlet.
+;
+#X connect 2 0 6 1;
+#X connect 4 0 6 0;
+#X connect 6 0 0 0;
+#X connect 6 0 1 0;
+#X connect 7 0 6 0;
+#X connect 8 0 6 0;
+#X connect 9 0 29 0;
+#X connect 10 0 11 0;
+#X connect 10 0 12 0;
+#X connect 11 0 10 1;
+#X connect 12 0 4 0;
+#X connect 13 0 14 0;
+#X connect 14 0 2 0;
+#X connect 14 1 18 0;
+#X connect 16 0 6 0;
+#X connect 17 0 6 0;
+#X connect 18 0 20 0;
+#X connect 21 0 9 0;
+#X connect 22 0 23 0;
+#X connect 22 0 29 1;
+#X connect 24 0 6 1;
+#X connect 28 0 30 0;
+#X connect 29 0 10 0;
+#X connect 30 0 22 0;
+#X restore 29 151 pd puma.led.monot.help;
+#N canvas 88 421 647 380 puma.led.slider.help 0;
+#X obj 29 309 s monome.led;
+#X obj 56 285 print;
+#X text 113 303 this sends to puma.connect \, though man can connect
+to the monome in another way.;
+#X floatatom 29 60 5 0 4 0 - - -;
+#X text 167 91 You can reset it's coords by sending a "coords" message
+to the left inlet following by the 4 standard coordinates values.;
+#X text 28 12 PURPOSE/BEHAVIOUR:;
+#X text 78 217 creation arguments: start_x \, start_y \, direction
+\, length(in leds). Remember that the slider has also the 0 value (no
+led lit). So the slider you are making has length+1 values. In this
+example \, 4+1=5 values.;
+#X text 143 11 puma.led.slider displays a virtual slider on the monome.
+;
+#X text 74 55 sending an int to the left inlet will display the slider's
+value accordingly.;
+#X msg 57 95 coords 4 3 1 4;
+#X msg 67 115 coords 4 3 2 4;
+#X msg 87 155 coords 4 3 4 5;
+#X msg 77 135 coords 4 3 3 5;
+#X obj 29 184 puma.led.slider 4 3 2 4;
+#X msg 201 164 clear;
+#X msg 201 184 redraw;
+#X text 262 178 a "clear" message at the right inlet will clear the
+whole slider \, a "redraw" message will draw the value back.;
+#X connect 3 0 13 0;
+#X connect 9 0 13 0;
+#X connect 10 0 13 0;
+#X connect 11 0 13 0;
+#X connect 12 0 13 0;
+#X connect 13 0 0 0;
+#X connect 13 0 1 0;
+#X connect 14 0 13 1;
+#X connect 15 0 13 1;
+#X restore 29 211 pd puma.led.slider.help;
+#N canvas 88 421 636 472 puma.led.toggle.help 0;
+#X obj 29 409 s monome.led;
+#X obj 56 385 print;
+#X msg 187 284 clear;
+#X text 113 403 this sends to puma.connect \, though man can connect
+to the monome in another way.;
+#X floatatom 63 90 5 0 4 0 - - -;
+#X text 167 191 You can reset it's coords by sending a "coords" message
+to the left inlet following by the 4 standard coordinates values.;
+#X text 28 22 PURPOSE/BEHAVIOUR:;
+#X text 74 155 sending an int to the left inlet will display the slider's
+value accordingly.;
+#X obj 29 284 puma.led.toggle 4 3 2 4;
+#X msg 187 264 redraw;
+#X text 239 277 a "clear" message at the right inlet will clear the
+whole slider \, a "redraw" message will draw it back;
+#X text 78 327 creation arguments: start_x \, start_y \, width \, height
+;
+#X floatatom 99 90 1 0 4 0 - - -;
+#X msg 57 195 coords 5 3 2 2;
+#X msg 67 215 coords 3 3 2 2;
+#X msg 77 235 coords 1 1 2 2;
+#X msg 87 255 coords 1 4 2 2;
+#X text 121 89 left: index \, right: state;
+#X text 143 21 toggles leds state. It's main purpose is to keep the
+leds states in memory for display clearing/drawing back.;
+#X obj 29 120 f;
+#X obj 29 140 pack f f;
+#X msg 23 90 bang;
+#X connect 2 0 8 1;
+#X connect 4 0 19 1;
+#X connect 8 0 0 0;
+#X connect 8 0 1 0;
+#X connect 9 0 8 1;
+#X connect 12 0 20 1;
+#X connect 13 0 8 0;
+#X connect 14 0 8 0;
+#X connect 15 0 8 0;
+#X connect 16 0 8 0;
+#X connect 19 0 20 0;
+#X connect 20 0 8 0;
+#X connect 21 0 19 0;
+#X restore 29 241 pd puma.led.toggle.help;
+#N canvas 88 421 549 346 puma.press.mono.help 0;
+#X obj 28 91 r monome.press;
+#X text 127 87 this is the pd channel on which puma.connects broadcasts
+the monome presses.;
+#X obj 28 201 puma.press.mono 1 3 5 5;
+#X text 183 200 4 arguments as for the leds abstractions;
+#X text 183 220 startX \, startY \, width \, height;
+#X msg 46 134 coords 0 0 2 2;
+#X msg 56 154 coords 6 6 2 2;
+#X text 163 133 You can dynamically relocate the press area by sending
+a "coords" <startX> <startY> <width> <height> message at the left inlet.
+;
+#X obj 28 266 print puma.press.mono:LEFT;
+#X text 28 15 BEHAVIOUR: puma.press.mono outputs a single number (buttonID)
+when pressed down. None when released.;
+#X connect 0 0 2 0;
+#X connect 2 0 8 0;
+#X connect 5 0 2 0;
+#X connect 6 0 2 0;
+#X restore 279 121 pd puma.press.mono.help;
+#N canvas 88 421 638 409 puma.press.repeat.help 0;
+#X obj 28 131 r monome.press;
+#X text 203 170 You can dynamically relocate the press area by sending
+a "coords" <startX> <startY> <width> <height> message at the left inlet.
+;
+#X obj 28 306 print puma.press.repeat:LEFT;
+#X obj 223 344 print puma.press.repeat:RIGHT;
+#X obj 28 241 puma.press.repeat 1 3 5 5 300 120;
+#X text 247 237 4 arguments as for the leds abstractions + the time
+(in ms) for the second outlet to start repeating + the interval (in
+ms) between each repeat;
+#X text 249 302 startX \, startY \, width \, height \, time \, interval
+;
+#X text 249 278 if you omit these \, time will be 300 and interval
+will be 120;
+#X text 28 15 BEHAVIOUR: puma.press.repeat outputs a single number
+when released on the leftmost outlet. If you press a button more than
+<time> (300 here) ms \, then the buttonID will be repeated on the rightmost
+outlet at <interval> (120 here) ms intervals \, until you release it.
+;
+#X text 127 127 this is the pd channel on which puma.connect broadcasts
+the monome presses.;
+#X msg 56 194 coords 6 6 2 2 300 120;
+#X msg 46 174 coords 6 6 2 2 1000 20;
+#X connect 0 0 4 0;
+#X connect 4 0 2 0;
+#X connect 4 1 3 0;
+#X connect 10 0 4 0;
+#X connect 11 0 4 0;
+#X restore 279 151 pd puma.press.repeat.help;
+#N canvas 88 421 582 366 puma.press.switch.help 0;
+#X obj 28 131 r monome.press;
+#X text 203 170 You can dynamically relocate the press area by sending
+a "coords" <startX> <startY> <width> <height> message at the left inlet.
+;
+#X text 127 127 this is the pd channel on which puma.connect broadcasts
+the monome presses.;
+#X obj 28 306 print puma.press.switch:LEFT;
+#X msg 46 175 coords 0 4 4 4;
+#X msg 56 194 coords 0 3 4 2;
+#X obj 28 241 puma.press.switch 0 4 4 4;
+#X text 28 15 BEHAVIOUR: puma.press.switch acts primarily as a filter.
+It converts the standard x y coordinates to a buttonID and append the
+state (0 - released or 1 - pressed) of the corresponding button in
+the form <buttonID> <state>. This abstraction will mainly serve as
+the basis for more complex press combinations.;
+#X text 247 237 4 arguments as for the leds abstractions;
+#X text 247 255 startX \, startY \, width \, height;
+#X connect 0 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 3 0;
+#X restore 279 181 pd puma.press.switch.help;
+#N canvas 88 421 594 467 puma.connect.help 0;
+#X obj 30 217 r monome.press;
+#X obj 30 402 s monome.led;
+#X obj 30 321 prepend /led;
+#X msg 39 6 prefix /40h;
+#X msg 49 26 prefix /box;
+#X obj 42 293 print presses;
+#X msg 76 58 ip 192.168.0.20;
+#X msg 76 78 send 9080;
+#X msg 76 98 listen 9000;
+#X text 135 14 <-- takes effect immediately;
+#X msg 138 330 /clear;
+#X msg 138 350 /led_row 0 255;
+#X msg 138 370 /led 3 5 1;
+#X text 204 130 Note that localhost is a valid value for the "host"
+parameter;
+#X text 204 105 You can also enter the values directly into the boxes
+of the gui (type in and press "enter").;
+#X obj 29 161 cnv 15 520 40 empty empty empty 20 12 0 14 -13381 -66577
+0;
+#X obj 39 170 puma.connect;
+#X text 180 75 <-- must disconnect and reconnect for those to take
+effect;
+#X text 135 218 <-- this receive object outputs stripped down press
+messages;
+#X text 139 231 (0 2 1 \, 2 8 0 \, and all the possibilities your monome
+offers);
+#X text 203 32 NOTE: This is different from the /sys/prefix <prefix>
+message. This one doesn't affect the serial app. prefix.;
+#X msg 75 127 ip 192.168.1.11;
+#X obj 75 247 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 30 265 spigot 0;
+#X text 135 398 <-- this send object accepts full monome led messages
+WITHOUT prefix \, which is added inside puma.connect \, according to
+prefix setting. You must add the /led segment to the led messages though.
+;
+#X connect 0 0 23 0;
+#X connect 2 0 1 0;
+#X connect 3 0 16 0;
+#X connect 4 0 16 0;
+#X connect 6 0 16 0;
+#X connect 7 0 16 0;
+#X connect 8 0 16 0;
+#X connect 10 0 1 0;
+#X connect 11 0 1 0;
+#X connect 12 0 1 0;
+#X connect 21 0 16 0;
+#X connect 22 0 23 1;
+#X connect 23 0 2 0;
+#X connect 23 0 5 0;
+#X restore 28 28 pd puma.connect.help;
+#N canvas 932 397 926 513 vis 0;
+#X obj 395 71 r puma.press.repeat-vis;
+#X obj 375 51 r puma.press.mono-vis;
+#X obj 415 91 r puma.press.switch-vis;
+#X obj 52 51 r puma.led.mono-vis;
+#X obj 72 71 r puma.led.monot-vis;
+#X obj 92 91 r puma.led.blink-vis;
+#X obj 112 111 r puma.led.slider-vis;
+#X obj 132 131 r puma.led.toggle-vis;
+#X msg 52 158 \; pd-puma.led.mono.help vis \$1 \;;
+#X msg 72 198 \; pd-puma.led.monot.help vis \$1 \;;
+#X msg 92 238 \; pd-puma.led.blink.help vis \$1 \;;
+#X msg 111 278 \; pd-puma.led.slider.help vis \$1 \;;
+#X msg 132 318 \; pd-puma.led.toggle.help vis \$1 \;;
+#X msg 375 158 \; pd-puma.press.mono.help vis \$1 \;;
+#X msg 394 198 \; pd-puma.press.repeat.help vis \$1 \;;
+#X msg 415 238 \; pd-puma.press.switch.help vis \$1 \;;
+#X obj 429 340 r puma.connect-vis;
+#X msg 429 366 \; pd-puma.connect.help vis \$1 \;;
+#X connect 0 0 14 0;
+#X connect 1 0 13 0;
+#X connect 2 0 15 0;
+#X connect 3 0 8 0;
+#X connect 4 0 9 0;
+#X connect 5 0 10 0;
+#X connect 6 0 11 0;
+#X connect 7 0 12 0;
+#X connect 16 0 17 0;
+#X restore 361 285 pd vis;
+#X restore 296 292 pd helpfiles;
+#X obj 35 120 tgl 15 0 puma.connect-vis puma.connect-vis-r PUMA.CONNECT
+18 8 1 11 -262144 -1 -1 0 1;
