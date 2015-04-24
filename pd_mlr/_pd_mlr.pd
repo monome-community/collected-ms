@@ -1,0 +1,171 @@
+#N canvas 0 0 1263 818 10;
+#X declare -lib mrpeach;
+#X declare -path ./lib/file;
+#X declare -path ./lib/sample;
+#X declare -path ./lib/ui;
+#X declare -path ./lib/sequence;
+#X declare -path ./lib/utility;
+#X obj 7 91 mixer_8x1_stereo~;
+#X obj 55 705 s sOSC;
+#X msg 55 678 send /sys/prefix /pd_mlr;
+#X text 97 705 monomeserial prefix;
+#X obj 224 91 mlr_ui_sample 1;
+#X obj 224 25 mlr_ui_group 0;
+#X obj 7 546 vsl 34 10 0 127 0 0 mlr-save-set mlr-save-set-r save 4
+6 1 12 -245500 -245500 -1 0 1;
+#X obj 44 546 vsl 34 10 0 127 0 0 mlr-load-set mlr-load-set-r load
+6 6 1 12 -245500 -245500 -1 0 1;
+#X obj 7 903 vsl 206 12 0 127 0 0 load-file-display load-file-display-r
+--- 5 7 0 12 -245500 -245500 -1 0 0;
+#X obj 7 757 pd_mlr_brain;
+#X obj 7 252 vsl 62 12 0 127 0 0 empty empty BPM 19 7 0 14 -13381 -13381
+-262144 0 0;
+#X obj 7 294 vsl 14 12 0 127 0 0 bpm-4 empty -4 0 7 0 12 -13381 -13381
+-262144 0 0;
+#X obj 23 294 vsl 14 12 0 127 0 0 bpm-1 empty -1 0 7 0 12 -13381 -13381
+-262144 0 0;
+#X obj 39 294 vsl 14 12 0 127 0 0 bpm+1 empty +1 0 7 0 12 -13381 -13381
+-262144 0 0;
+#X obj 55 294 vsl 14 12 0 127 0 0 bpm+4 empty +4 0 7 0 12 -13381 -13381
+-262144 0 0;
+#X obj 7 268 cnv 15 62 23 empty bpm-blink empty 20 12 0 14 -233017
+-262144 0;
+#X obj 11 269 vsl 54 20 0 127 0 0 bpm-display bpm-display-r 120 10
+12 0 18 -133184 -133184 -1 0 0;
+#X obj 7 618 bng 20 250 50 0 clear-all-led empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 681 25 mlr_ui_sequence 0;
+#X obj 7 588 bng 20 250 50 0 mlr-stop empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 280 25 mlr_ui_group 1;
+#X obj 336 25 mlr_ui_group 2;
+#X obj 392 25 mlr_ui_group 3;
+#X obj 448 25 mlr_ui_group 4;
+#X obj 504 25 mlr_ui_group 5;
+#X obj 560 25 mlr_ui_group 6;
+#X obj 616 25 mlr_ui_group 7;
+#X obj 7 321 vsl 66 60 1 1 0 0 monome-size monome-size-64 64 22 30
+0 18 -355 -355 -262144 0 1;
+#X obj 81 321 vsl 132 60 2 2 0 0 monome-size monome-size-128H 128H
+42 30 0 18 -262144 -262144 -355 0 1;
+#X obj 147 394 vsl 66 120 3 3 0 0 monome-size monome-size-128V 128V
+12 58 0 18 -262144 -262144 -355 0 1;
+#X obj 7 394 vsl 132 120 4 4 0 0 monome-size monome-size-256 256 50
+58 0 18 -262144 -262144 -355 0 1;
+#X text 28 614 click to clear;
+#X text 28 624 all led's;
+#X text 28 584 click to stop;
+#X text 28 594 all samples/groups;
+#X obj 224 8 vsl 447 12 0 127 0 0 empty empty GROUPS 4 7 0 16 -13381
+-13381 -262144 0 0;
+#X obj 681 8 vsl 100 12 0 127 0 0 empty empty RECORDERS 4 7 0 16 -13381
+-13381 -262144 0 0;
+#X text 5 772 click to open;
+#X text 5 782 full pd patch;
+#X obj 448 25 cnv 15 223 40 empty cover-groups empty 20 12 0 14 -13381
+-66577 0;
+#X obj 99 108 cnv 1 78 130 empty cover-mixer empty 20 12 0 14 -233017
+-66577 0;
+#X obj 171 276 vsl 42 30 0 10 0 0 microfade-s microfade-r 03ms 2 15
+0 16 -133184 -133184 -1 870 1;
+#X obj 7 648 bng 20 250 50 0 clear-all-sample empty empty 17 7 0 10
+-262144 -1 -1;
+#X text 28 644 click to clear;
+#X text 28 654 all samples;
+#X obj 781 8 vsl 347 12 0 127 0 0 empty empty Tap-record**Tap_again-play/stop**Tap_2x-reset
+4 7 0 12 -13381 -13381 -262144 0 0;
+#X obj 681 69 vsl 214 10 0 127 0 0 empty empty purple_slider=length_(beats)
+4 6 0 11 -13381 -13381 -262144 0 0;
+#X obj 224 69 vsl 447 10 0 127 0 0 empty empty If_group_LED_is_on_tap_to_stop_all_samples_in_group
+4 6 0 12 -13381 -13381 -262144 0 0;
+#X obj 7 6 cnv 15 206 76 empty empty PD_MLR_V0.6.1 4 9 0 16 -13381
+-262144 0;
+#X obj 793 25 mlr_ui_sequence 2;
+#X obj 737 25 mlr_ui_sequence 1;
+#X obj 905 25 mlr_ui_sequence 4;
+#X obj 961 25 mlr_ui_sequence 5;
+#X obj 1017 25 mlr_ui_sequence 6;
+#X obj 1073 25 mlr_ui_sequence 7;
+#X obj 905 25 cnv 15 223 40 empty cover-groups empty 20 12 0 14 -13381
+-66577 0;
+#X obj 849 25 mlr_ui_sequence 3;
+#X obj 75 276 vsl 42 30 2 18 0 0 beats-s beats-r 08 12 15 0 16 -133184
+-133184 -1 1088 1;
+#X obj 224 141 mlr_ui_sample 2;
+#X obj 224 191 mlr_ui_sample 3;
+#X obj 224 240 mlr_ui_sample 4;
+#X obj 224 290 mlr_ui_sample 5;
+#X obj 224 340 mlr_ui_sample 6;
+#X obj 224 390 mlr_ui_sample 7;
+#X obj 224 490 mlr_ui_sample 9;
+#X obj 224 540 mlr_ui_sample 10;
+#X obj 224 590 mlr_ui_sample 11;
+#X obj 224 640 mlr_ui_sample 12;
+#X obj 224 690 mlr_ui_sample 13;
+#X obj 224 740 mlr_ui_sample 14;
+#X obj 224 790 mlr_ui_sample 15;
+#X obj 224 440 mlr_ui_sample 8;
+#X obj 681 91 mlr_ui_sample 16;
+#X obj 681 141 mlr_ui_sample 17;
+#X obj 681 191 mlr_ui_sample 18;
+#X obj 681 240 mlr_ui_sample 19;
+#X obj 681 290 mlr_ui_sample 20;
+#X obj 681 340 mlr_ui_sample 21;
+#X obj 681 390 mlr_ui_sample 22;
+#X obj 681 440 mlr_ui_sample 23;
+#X obj 681 490 mlr_ui_sample 24;
+#X obj 681 540 mlr_ui_sample 25;
+#X obj 681 590 mlr_ui_sample 26;
+#X obj 681 640 mlr_ui_sample 27;
+#X obj 681 690 mlr_ui_sample 28;
+#X obj 681 740 mlr_ui_sample 29;
+#X obj 681 790 mlr_ui_sample 30;
+#X obj 123 276 vsl 42 30 0 4 0 0 quantize-s quantize-r 1/16 1 15 0
+16 -133184 -133184 -1 1450 1;
+#X obj 75 261 cnv 13 42 13 empty empty Beats 7 6 0 10 -13381 -262144
+0;
+#X obj 75 250 cnv 13 42 13 empty empty Std 13 6 0 10 -13381 -262144
+0;
+#X obj 123 261 cnv 13 42 13 empty empty -ize 5 6 0 10 -13381 -262144
+0;
+#X obj 123 250 cnv 13 42 13 empty empty Quant 6 6 0 10 -13381 -262144
+0;
+#X obj 171 262 cnv 13 42 13 empty empty Fade 10 6 0 10 -13381 -262144
+0;
+#X obj 171 250 cnv 13 42 13 empty empty Micro 7 6 0 10 -13381 -262144
+0;
+#X obj 7 689 cnv 11 42 11 empty empty Prefix 6 6 0 9 -13381 -262144
+0;
+#X obj 7 678 cnv 11 42 11 empty empty Auto-Set 1 6 0 9 -13381 -262144
+0;
+#X obj 7 703 vsl 42 16 0 127 0 0 prefix prefix-r OFF 10 9 0 14 -262144
+-262144 -355 0 1;
+#X obj 86 544 cnv 11 84 15 empty empty Auto-Load_Set 4 8 0 10 -13381
+-262144 0;
+#X obj 171 546 vsl 42 10 0 127 0 0 auto-file auto-file-r OFF 11 6 0
+12 -262144 -262144 -355 0 1;
+#X obj 7 527 cnv 11 206 15 empty empty Sample_Set 2 8 0 12 -13381 -262144
+0;
+#X obj 148 44 cnv 15 64 20 cpu-load cpu-load-r 19 22 12 0 16 -166441
+-33289 0;
+#X obj 148 23 cnv 15 64 20 empty empty CPU_Load 2 12 0 14 -16662 -262144
+0;
+#X obj 147 67 vsl 66 12 0 127 0 0 cpu-meter-on cpu-meter-on-r ON 23
+8 0 12 -355 -355 -262144 0 1;
+#X obj 681 91 cnv 10 447 749 empty cover-right empty 20 12 0 14 -233017
+-66577 0;
+#X obj 224 441 cnv 10 904 399 empty cover-bottom empty 20 12 0 14 -233017
+-66577 0;
+#X obj 128 734 vsl 85 10 0 127 0 0 mlr-save-config mlr-save-config-r
+save_current 4 6 1 12 -262144 -262144 -355 0 1;
+#X obj 7 732 cnv 11 120 15 empty empty Configuration 2 8 0 12 -13381
+-262144 0;
+#X obj 7 563 vsl 206 12 0 127 0 0 load-file-display load-file-display-r
+--- 5 7 0 12 -245500 -245500 -1 0 0;
+#X obj 895 69 vsl 233 10 0 127 0 0 empty empty B/A_record_Button_press_or_Audio
+4 6 0 11 -13381 -13381 -262144 0 0;
+#X obj 129 757 mlr_help;
+#X text 127 772 click to open;
+#X text 127 782 documentation;
+#X connect 2 0 1 0;
+#X coords 0 0 1 1 85 60 0;

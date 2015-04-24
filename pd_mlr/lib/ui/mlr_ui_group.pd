@@ -1,0 +1,42 @@
+#N canvas 404 53 401 243 10;
+#X msg 135 121 color \$1;
+#X obj 16 0 cnv 15 39 40 dummy \$1-group-led-r empty 20 12 0 14 -233017
+-262144 0;
+#X obj 22 5 tgl 25 0 \$1-group-tgl \$1-group-tgl-r empty 17 7 0 10
+-262144 -1 -1 0 1;
+#X obj 135 148 s \$1-group-led-r;
+#X obj 22 168 s group-press;
+#X obj 22 60 t b b f;
+#X obj 22 87 f \$1;
+#X msg 41 114 0;
+#X obj 22 141 pack f f f;
+#X obj 135 0 tgl 30 0 \$1-group-toggle \$1-group-toggle-r empty 17
+7 0 10 -262144 -1 -1 0 1;
+#X obj 135 67 sel 0 1;
+#X obj 255 94 f \$1;
+#X obj 255 148 s group-led;
+#X obj 255 67 t b f;
+#X obj 255 121 pack f f;
+#X obj 0 0 cnv 15 15 40 empty empty \$1 4 12 1 14 -13381 -262144 0
+;
+#X msg 165 94 18;
+#X msg 135 94 10;
+#X connect 0 0 3 0;
+#X connect 2 0 5 0;
+#X connect 5 0 6 0;
+#X connect 5 1 7 0;
+#X connect 5 2 8 2;
+#X connect 6 0 8 0;
+#X connect 7 0 8 1;
+#X connect 8 0 4 0;
+#X connect 9 0 10 0;
+#X connect 9 0 13 0;
+#X connect 10 0 17 0;
+#X connect 10 1 16 0;
+#X connect 11 0 14 0;
+#X connect 13 0 11 0;
+#X connect 13 1 14 1;
+#X connect 14 0 12 0;
+#X connect 16 0 0 0;
+#X connect 17 0 0 0;
+#X coords 0 -1 1 1 55 40 2 0 0;

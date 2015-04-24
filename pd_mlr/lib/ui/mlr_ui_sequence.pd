@@ -1,0 +1,26 @@
+#N canvas 200 431 339 225 10;
+#X obj 13 0 cnv 15 39 25 empty \$1-sequence-led-r empty 20 12 0 14
+-233017 -262144 0;
+#X obj 28 151 pack f f f;
+#X msg 67 97 0;
+#X obj 28 97 f \$1;
+#X obj 28 70 t b b f;
+#X obj 28 178 s sequence-press;
+#X obj 0 50 cnv 15 15 15 empty empty \$1 4 8 1 14 -13381 -262144 0
+;
+#X obj 28 124 + 8;
+#X obj 19 0 tgl 25 0 dummy-0 dummy-0-r beats 1 20 0 8 -262144 -1 -1
+0 1;
+#X obj 16 25 hsl 34 14 4 32 0 0 \$1-sequence-length \$1-sequence-length-r
+08 8 -16 0 14 -133184 -1 -1 500 1;
+#X obj 0 2 vsl 12 35 0 1 0 0 \$1-sequence-mode \$1-sequence-mode-r
+B 2 7 0 14 -42246 -42246 -262144 0 1;
+#X connect 1 0 5 0;
+#X connect 2 0 1 1;
+#X connect 3 0 7 0;
+#X connect 4 0 3 0;
+#X connect 4 1 2 0;
+#X connect 4 2 1 2;
+#X connect 7 0 1 0;
+#X connect 8 0 4 0;
+#X coords 0 -1 1 1 55 40 2 0 0;

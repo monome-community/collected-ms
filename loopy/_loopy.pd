@@ -1,0 +1,150 @@
+#N canvas 0 0 1243 986 10;
+#X declare -lib mrpeach;
+#X declare -path ./lib/file;
+#X declare -path ./lib/sample;
+#X declare -path ./lib/ui;
+#X declare -path ./lib/sequence;
+#X declare -path ./lib/utility;
+#X declare -path ./lib/row;
+#X obj -222 231 s sOSC;
+#X text -180 231 monomeserial prefix;
+#X obj -270 161 vsl 34 10 0 127 0 0 mlr-save-set mlr-save-set-r save
+4 6 1 12 -245500 -245500 -1 0 1;
+#X obj -233 161 vsl 34 10 0 127 0 0 mlr-load-set mlr-load-set-r load
+6 6 1 12 -245500 -245500 -1 0 1;
+#X obj -270 215 cnv 11 42 11 empty empty Prefix 6 6 1 9 -13381 -262144
+0;
+#X obj -270 204 cnv 11 42 11 empty empty Auto-Set 1 6 1 9 -13381 -262144
+0;
+#X obj -270 229 vsl 42 16 0 127 0 0 prefix prefix-r ON 10 9 1 14 -355
+-355 -262144 0 1;
+#X obj -191 159 cnv 11 84 15 empty empty Auto-Load_Set 4 8 1 10 -13381
+-262144 0;
+#X obj -106 161 vsl 42 10 0 127 0 0 auto-file auto-file-r OFF 11 6
+1 12 -228992 -228992 -33289 0 1;
+#X obj -270 142 cnv 11 206 15 empty empty Sample_Set 2 8 1 12 -13381
+-262144 0;
+#X obj -149 124 vsl 85 10 0 127 0 0 mlr-save-config mlr-save-config-r
+save_current 4 6 1 12 -262144 -262144 -355 0 1;
+#X obj -270 122 cnv 11 120 15 empty empty Configuration 2 8 1 12 -13381
+-262144 0;
+#X msg -222 204 send /sys/prefix /loopy;
+#X obj 48 -12 lpy_ui_sequence 1;
+#X obj -270 -29 cnv 15 139 16 empty empty loopy_(adjective): 3 9 1
+14 -13381 -262144 0;
+#X obj -270 -12 cnv 15 206 18 empty empty 1)_characterized_by 3 12
+1 10 -13381 -262144 0;
+#X obj -251 7 cnv 15 187 18 empty empty or_having_loops 3 5 1 10 -13381
+-262144 0;
+#X obj -270 26 cnv 15 206 21 empty empty 2)_crazy_bizarre 3 5 1 10
+-13381 -262144 0;
+#X obj -130 -29 cnv 15 66 16 empty empty v2.0 14 9 1 14 -13381 -262144
+0;
+#X obj -270 7 cnv 15 20 18 empty empty empty 3 5 0 10 -13381 -262144
+0;
+#X obj 48 -29 cnv 14 307 14 empty empty RECORDERS*Tap-record*Tap-play/stop*Tap_2x-reset
+4 7 1 12 -13381 -262144 0;
+#X obj 624 -29 sequence_master_settings;
+#X obj -270 644 mixer__IN_8_mono~;
+#X obj -270 58 cnv 15 206 23 empty empty FOR_HELP_>>> 2 12 1 12 -13381
+-262144 0;
+#X obj -270 266 vsl 66 60 1 1 0 0 monome-size monome-size-64 64 22
+30 1 18 -228992 -228992 -33289 0 1;
+#X obj -196 266 vsl 132 60 2 2 0 0 monome-size monome-size-128H 128H
+42 30 1 18 -355 -355 -262144 0 1;
+#X obj -270 800 cnv 15 206 23 empty empty Click_for_PD_patches> 2 12
+1 12 -13381 -262144 0;
+#X obj -270 503 mixer_OUT_4_stereo~;
+#X obj -270 345 cnv 15 206 70 empty empty Sync_Options 4 12 1 12 -13381
+-262144 0;
+#X obj -233 370 vsl 166 8 0 1 0 0 sync-master sync-master-r Master-Internal_loopy_Clock
+2 5 1 12 -228992 -228992 -33289 0 1;
+#X obj -233 385 vsl 166 8 0 1 0 0 sync-slave-clock sync-slave-clock-r
+Slave-Ext_Clock_(Win_Only) 2 5 1 12 -228992 -228992 -33289 0 1;
+#X obj -233 400 vsl 166 8 0 1 0 0 sync-slave-track sync-slave-track-r
+Slave-Ext_Midi_Click_Track 2 5 1 12 -228992 -228992 -33289 0 1;
+#X obj -179 351 cnv 14 114 14 empty empty (see_help_for_info) 2 5 0
+10 -13381 -262144 0;
+#X obj -124 423 vsl 60 12 0 1 0 0 bpm-calibrate bpm-calibrate-r Calibrate
+4 7 1 12 -228992 -228992 -33289 0 1;
+#X obj -222 423 vsl 32 12 0 127 0 0 BPM-label BPM-label-r BPM 3 7 1
+14 -13381 -13381 -262144 0 0;
+#X obj -188 423 vsl 14 12 0 127 0 0 bpm-4 bpm-4-r -4 2 7 1 12 -13381
+-13381 -262144 0 0;
+#X obj -172 423 vsl 14 12 0 127 0 0 bpm-1 bpm-1-r -1 2 7 1 12 -13381
+-13381 -262144 0 0;
+#X obj -156 423 vsl 14 12 0 127 0 0 bpm+1 bpm+1-r +1 1 7 1 12 -13381
+-13381 -262144 0 0;
+#X obj -140 423 vsl 14 12 0 127 0 0 bpm+4 bpm+4-r +4 1 7 1 12 -13381
+-13381 -262144 0 0;
+#X obj -260 423 vsl 36 12 0 127 0 0 bpm-display bpm-display-r 120 4
+7 1 16 -228992 -228992 -33289 0 0;
+#X obj -270 423 vsl 10 12 0 127 0 0 bpm-blink bpm-blink-r empty 14
+7 0 16 -228992 -228992 -228992 0 0;
+#X obj -178 58 cnv 14 114 14 empty empty see_loopy_help.txt 2 5 1 10
+-13381 -262144 0;
+#X obj -178 68 cnv 13 114 13 empty empty in_loopy_directory 2 5 1 10
+-13381 -262144 0;
+#X obj -267 369 vsl 30 17 0 1 0 0 sync-on sync-on-r ON 5 10 1 14 -228992
+-228992 -33289 0 1;
+#X obj -267 391 vsl 30 17 0 1 0 0 sync-off sync-off-r OFF 2 10 1 14
+-355 -355 -262144 0 1;
+#X obj -135 803 loopy_brain;
+#X obj -270 469 vsl 54 15 0 127 0 0 Repeat-label Repeat-label-r Repeat
+3 8 1 14 -13381 -13381 -262144 0 0;
+#X obj -141 469 vsl 37 15 0 4 0 0 repeat-A repeat-A-r 1/8 2 8 0 14
+-355 -355 -262144 0 0;
+#X obj -101 469 vsl 37 15 0 4 0 0 repeat-B repeat-B-r 1/16 2 8 0 14
+-355 -355 -262144 0 0;
+#X obj -33 91 lpy_ui_row 1;
+#X obj -33 6 vsl 78 72 0 0 0 0 ui-page ui-page-r L 32 30 1 18 -262144
+-262144 -262144 0 1;
+#X obj -33 -12 cnv 13 78 15 page-label-ui page-label-ui-r Page_Select
+4 6 1 12 -262144 -262144 0;
+#X obj -270 93 vsl 60 15 0 127 0 0 stop-all stop-all-r STOP_ALL 4 8
+1 11 -261689 -261689 -33289 0 1;
+#X obj -204 93 vsl 67 15 0 127 0 0 clear-all-led clear-all-led-r CLEAR_LED
+4 8 1 11 -261689 -261689 -33289 0 1;
+#X obj -131 93 vsl 67 15 0 127 0 0 clear-all-sample clear-all-sample-r
+CLEAR_ALL 4 8 1 11 -261689 -261689 -33289 0 1;
+#X obj -270 178 vsl 206 12 0 127 0 0 load-file-display load-file-display-r
+--- 2 6 0 10 -262144 -262144 -1 0 1;
+#X obj 358 -29 cnv 14 161 14 empty empty Source_&_external_in_(L/R)
+4 7 1 12 -355 -262144 0;
+#X obj 522 -29 cnv 14 90 14 empty empty Length_(beats) 4 7 1 12 -66577
+-262144 0;
+#X obj -270 446 vsl 60 12 0 127 0 0 Quantize-label Quantize-label-r
+Quantize 2 7 1 14 -13381 -13381 -262144 0 0;
+#X obj -170 446 vsl 66 12 0 127 0 0 Microfade-label Microfade-label-r
+Microfade 3 7 1 14 -13381 -13381 -262144 0 0;
+#X obj -209 446 vsl 35 12 0 4 0 0 quantize-s quantize-r 1/16 2 7 1
+16 -355 -355 -262144 550 0;
+#X obj -104 446 vsl 40 12 0 10 0 0 microfade-s microfade-r 03ms 5 7
+1 14 -228992 -228992 -33289 330 0;
+#X obj -215 467 cnv 10 70 10 empty empty hold_recorder 2 5 1 11 -13381
+-262144 0;
+#X obj -215 477 cnv 10 70 10 empty empty buttons_6/7 2 5 1 11 -13381
+-262144 0;
+#X obj -162 -2 vsl 98 15 0 127 0 0 audio-on audio-on-r AUDIO_ON 3 10
+1 16 -355 -355 -262144 0 1;
+#X obj -96 21 cnv 15 32 20 cpu-load cpu-load-r 12 2 12 1 16 -166441
+-33289 0;
+#X obj -162 21 cnv 15 65 20 empty empty CPU_Load 1 12 1 12 -355 -262144
+0;
+#X obj -162 17 cnv 6 98 6 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj -162 41 cnv 6 98 6 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 210 -12 lpy_ui_sequence 3;
+#X obj 129 -12 lpy_ui_sequence 2;
+#X obj 291 -12 lpy_ui_sequence 4;
+#X obj 372 -12 lpy_ui_sequence 5;
+#X obj 453 -12 lpy_ui_sequence 6;
+#X obj 534 -12 lpy_ui_sequence 7;
+#X obj -33 515 lpy_ui_row 5;
+#X obj -33 303 lpy_ui_row 3;
+#X obj -33 728 lpy_ui_row 7;
+#X obj -33 197 lpy_ui_row 2;
+#X obj -33 409 lpy_ui_row 4;
+#X obj -33 622 lpy_ui_row 6;
+#X connect 12 0 0 0;

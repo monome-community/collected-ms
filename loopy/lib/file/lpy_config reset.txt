@@ -1,0 +1,10 @@
+sync 0;
+bpm 120;
+quantize 2;
+microfade 3;
+repeat 3 2;
+monome 2;
+autofile 0;
+lastfile ---;
+prefix 1;
+sequence-master 0 3 0 1 0;

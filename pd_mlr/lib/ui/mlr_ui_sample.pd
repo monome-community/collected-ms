@@ -1,0 +1,119 @@
+#N canvas 286 339 708 360 10;
+#X obj 26 2 vsl 35 10 0 127 0 0 \$1-sample-load \$1-sample-load-r load
+7 5 1 12 -191407 -191407 -1 0 1;
+#X obj 61 2 vsl 35 10 0 127 0 0 \$1-sample-clear \$1-sample-clear-r
+clear 5 5 1 12 -191407 -191407 -1 0 0;
+#X obj 27 16 cnv 15 26 32 empty \$1-1-smp-led-r empty 20 12 0 14 -262144
+-262144 0;
+#X obj 31 22 tgl 18 0 \$1-1-smp-toggle \$1-1-smp-toggle-r empty 17
+7 0 10 -262144 -232576 -1 0 1;
+#X obj 54 16 cnv 15 26 32 empty \$1-2-smp-led-r empty 20 12 0 14 -262144
+-262144 0;
+#X obj 58 22 tgl 18 0 \$1-2-smp-toggle \$1-2-smp-toggle-r empty 17
+7 0 10 -262144 -232576 -1 0 1;
+#X obj 81 16 cnv 15 26 32 empty \$1-3-smp-led-r empty 20 12 0 14 -262144
+-262144 0;
+#X obj 85 22 tgl 18 0 \$1-3-smp-toggle \$1-3-smp-toggle-r empty 17
+7 0 10 -262144 -232576 -1 0 1;
+#X obj 108 16 cnv 15 26 32 empty \$1-4-smp-led-r empty 20 12 0 14 -262144
+-262144 0;
+#X obj 112 22 tgl 18 0 \$1-4-smp-toggle \$1-4-smp-toggle-r empty 17
+7 0 10 -262144 -232576 -1 0 1;
+#X obj 135 16 cnv 15 26 32 empty \$1-5-smp-led-r empty 20 12 0 14 -262144
+-262144 0;
+#X obj 139 22 tgl 18 0 \$1-5-smp-toggle \$1-5-smp-toggle-r empty 17
+7 0 10 -262144 -232576 -1 0 1;
+#X obj 162 16 cnv 15 26 32 empty \$1-6-smp-led-r empty 20 12 0 14 -262144
+-262144 0;
+#X obj 166 22 tgl 18 0 \$1-6-smp-toggle \$1-6-smp-toggle-r empty 17
+7 0 10 -262144 -232576 -1 0 1;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array \$1-L 176400 float 2;
+#X coords 0 0 176400 1 200 140 0;
+#X restore 33 82 graph;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array \$1-R 176400 float 2;
+#X coords 0 0 176400 1 200 140 0;
+#X restore 33 99 graph;
+#X text 72 81 \$1-L sample array;
+#X text 72 101 \$1-R sample array;
+#X obj 1 16 cnv 15 25 32 empty \$1-0-smp-led-r empty 20 12 0 14 -262144
+-262144 0;
+#X obj 4 22 tgl 18 0 \$1-0-smp-toggle \$1-0-smp-toggle-r empty 17 7
+0 10 -262144 -232576 -1 0 1;
+#X obj 96 2 vsl 35 10 0 127 0 0 \$1-sample-stop \$1-sample-stop-r stop
+5 5 1 12 -191407 -191407 -1 0 0;
+#X obj 460 0 loadbang;
+#X msg 460 27 0;
+#X obj 404 37 cnv 12 20 12 empty empty speed 5 6 0 10 -262144 -1 0
+;
+#X obj 257 37 cnv 12 103 12 empty empty group 4 6 0 10 -262144 -1 0
+;
+#X obj 258 24 hradio 13 1 0 8 \$1-group \$1-group-r empty 0 -8 0 10
+-262144 -1 -1 0;
+#X obj 189 16 cnv 15 26 32 empty \$1-7-smp-led-r empty 20 12 0 14 -99865
+-262144 0;
+#X obj 193 22 tgl 18 0 \$1-7-smp-toggle \$1-7-smp-toggle-r empty 17
+7 0 10 -262144 -232576 -1 0 1;
+#X obj 33 147 r monome-size;
+#X obj 60 201 f \$1;
+#X obj 33 174 t f b;
+#X obj 33 228 expr if ($f1==2 && $f2>=16 \, $f2-8 \, $f2);
+#X obj 1 1 cnv 10 24 14 empty \$1-ui-sample-number 1 4 7 0 12 -13381
+-262144 0;
+#X obj 33 309 s \$1-ui-sample-number;
+#X text 166 303 adjust ui sample number;
+#X text 166 313 based upon chosen monome layout;
+#X obj 311 24 cnv 1 1 1 empty \$1-ui-sample-cover-groups empty 20 12
+0 14 -262144 -66577 0;
+#X obj 399 147 r monome-size;
+#X obj 399 174 sel 1 2 3 4;
+#X msg 452 249 0 0;
+#X msg 400 276 vis_size \$1 \$2;
+#X obj 400 303 s \$1-ui-sample-cover-groups;
+#X obj 33 255 ftos;
+#X msg 33 282 label \$1;
+#X msg 541 276 size 10;
+#X msg 541 256 size 1;
+#X msg 399 249 51 13;
+#X obj 460 54 s \$1-group-r;
+#X text 492 224 based upon chosen monome layout;
+#X text 492 214 hide/show groups;
+#X obj 369 37 cnv 12 37 12 empty empty beats 2 6 0 10 -262144 -1 0
+;
+#X obj 131 2 vsl 240 10 0 127 0 0 \$1-filename-display \$1-filename-display-r
+--- 5 5 0 9 -191407 -191407 -1 0 0;
+#X obj 371 2 vsl 76 10 0 127 0 0 \$1-sample-length-display \$1-sample-length-display-r
+0_seconds 5 5 1 10 -191407 -191407 -1 0 0;
+#X obj 371 15 cnv 15 75 22 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 406 17 vsl 41 17 0.25 4 0 0 \$1-speed-ctl \$1-speed-ctl-r 1x
+2 10 0 10 -228856 -228856 -1 0 1;
+#X obj 383 16 cnv 15 22 20 \$1-beats-ctl \$1-beats-ctl-r 0 3 12 0 12
+-228856 -1 0;
+#X obj 371 17 vsl 11 6 0 127 0 0 \$1-beats-plus \$1-beats-plus-r +
+1 2 0 16 -228856 -228856 -1 0 1;
+#X obj 371 28 vsl 11 6 0 127 0 0 \$1-beats-minus \$1-beats-minus-r
+- 0 2 0 18 -228856 -228856 -1 0 1;
+#X obj 221 17 vsl 30 30 0 1 0 0 \$1-reverse-mode \$1-reverse-mode-r
+>F> 3 16 0 14 -262144 -262144 -16662 0 1;
+#X connect 21 0 22 0;
+#X connect 22 0 47 0;
+#X connect 28 0 30 0;
+#X connect 29 0 31 1;
+#X connect 30 0 31 0;
+#X connect 30 1 29 0;
+#X connect 31 0 42 0;
+#X connect 37 0 38 0;
+#X connect 38 0 46 0;
+#X connect 38 1 39 0;
+#X connect 38 2 46 0;
+#X connect 38 3 39 0;
+#X connect 39 0 40 0;
+#X connect 40 0 41 0;
+#X connect 42 0 43 0;
+#X connect 43 0 33 0;
+#X connect 44 0 41 0;
+#X connect 45 0 41 0;
+#X connect 46 0 40 0;
+#X coords 0 -1 1 1 447 50 2 0 0;

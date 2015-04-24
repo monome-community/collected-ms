@@ -1,0 +1,49 @@
+Please address comments & questions to:
+Monome community pd_mlr discussion thread
+http://post.monome.org/comments.php?DiscussionID=7177&page=1#Item_0
+or
+Bongo
+http://post.monome.org/account.php?u=2781
+
+_pd_mlr_0.61 Release Notes
+
+Fixed in this release
+
+1) Fixed bug in V0.6 release. I had neglected to reset the auto load feature, and V0.6 was trying to auto load a set from a location on my own PC.
+
+
+
+_pd_mlr_0.6 Release Notes
+
+
+_pd_mlr_0.6 Release Notes
+
+Fixed in this release
+
+1) Replaced dumpOSC/sendOSC, which is no longer supported, with Mr Peach external for OSC communication with monome.
+
+
+
+_pd_mlr_0.5 Release Notes
+
+
+Fixed in this release:
+
+1) Added missing functionality - Changing master tempo or standard beats per sample now changes playback speed of all samples.
+
+2) Fixed bug where chopping between different sample rows assigned to the same group caused a brief discontinuity audible as click or silence - Now cross-fades correctly.
+
+3) Improved functionality of audio loop recorders - a) Implemented a cross-fade between end and beginning of loop; and b) Adjusted precise timing of loop record start/stop for better capture of what exactly what is heard while recording.
+
+4) Fixed bug where group stop was being sent to rows without samples loaded, causing clicks.
+
+5) Fixed bug where "stop all samples" did not always work.
+
+6) Added functionality to save sample play direction (forward/reverse) in saved set.
+
+
+Under consideration for future releases:
+
+1) Add functionality for next/previous preset settings, to make it easy to move between sample sets/settings directly from the monome during performance.
+
+2) Consider revising interface for sequence recorders, as current quick double press of button used to reset recorder can sometimes result in a brief bit of unwanted play of previously recorded loop.

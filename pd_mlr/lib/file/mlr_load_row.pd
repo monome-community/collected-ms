@@ -1,0 +1,14 @@
+#N canvas 960 72 430 258 10;
+#X obj 9 9 inlet;
+#X obj 9 63 s \$1-filename;
+#X obj 56 90 s \$1-group-r;
+#X obj 103 117 s \$1-pitch-r;
+#X obj 151 144 s \$1-speed-r;
+#X obj 9 36 route filename group pitch speed reverse;
+#X obj 198 171 s \$1-reverse-toggle-r;
+#X connect 0 0 5 0;
+#X connect 5 0 1 0;
+#X connect 5 1 2 0;
+#X connect 5 2 3 0;
+#X connect 5 3 4 0;
+#X connect 5 4 6 0;

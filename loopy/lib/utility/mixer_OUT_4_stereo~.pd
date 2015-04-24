@@ -1,0 +1,115 @@
+#N canvas 282 0 998 702 10;
+#X obj 0 0 cnv 15 206 130 empty mixer-label-r OUT_4_Stereo 59 8 1 12
+-13381 -262144 0;
+#X obj 683 321 s 1-gain-r;
+#X obj 673 342 s 2-gain-r;
+#X obj 663 362 s 3-gain-r;
+#X obj 653 382 s 4-gain-r;
+#X obj 643 402 s 5-gain-r;
+#X obj 633 422 s 6-gain-r;
+#X obj 623 442 s 7-gain-r;
+#X obj 623 227 r load-gain;
+#X text 804 144 send all button press audio;
+#X obj 623 150 catch~ pre-L;
+#X obj 727 150 catch~ pre-R;
+#X text 804 155 to all audio recorders;
+#X obj 623 180 send~ seq-all-L;
+#X obj 727 180 send~ seq-all-R;
+#X obj 623 1 mixer_row_router 1;
+#X obj 623 18 mixer_row_router 2;
+#X obj 623 35 mixer_row_router 3;
+#X obj 623 52 mixer_row_router 4;
+#X obj 623 69 mixer_row_router 5;
+#X obj 623 86 mixer_row_router 6;
+#X obj 623 103 mixer_row_router 7;
+#X obj 242 198 dac~ 1 2 3 4 5 6 7 8;
+#X text 739 0 audio routing for individual rows;
+#X obj 33 17 vu 10 80 1-out-meter-R empty -1 -8 0 10 -66577 -1 0 0
+;
+#X obj 7 17 vu 10 80 1-out-meter-L empty -1 -8 0 10 -66577 -1 0 0;
+#X obj 10 101 vsl 30 7 0 100 0 0 1-out-mute 1-out-mute-r mute 4 4 1
+11 -262144 -262144 -1 0 1;
+#X obj 15 17 vsl 20 79 0.01 1 1 1 1-out-gain 1-out-gain-r 1 6 72 1
+14 -133184 -1 -1 7422 1;
+#X obj 6 117 vsl 188 7 0 100 0 0 mute-all mute-all-r mute_all 74 5
+1 11 -262144 -262144 -1 0 1;
+#X obj 83 17 vu 10 80 2-out-meter-R empty -1 -8 0 10 -66577 -1 0 0
+;
+#X obj 57 17 vu 10 80 2-out-meter-L empty -1 -8 0 10 -66577 -1 0 0
+;
+#X obj 60 101 vsl 30 7 0 100 0 0 2-out-mute 2-out-mute-r mute 4 4 1
+11 -262144 -262144 -1 0 1;
+#X obj 65 17 vsl 20 79 0.01 1 1 1 2-out-gain 2-out-gain-r 2 6 72 1
+14 -133184 -1 -1 7422 1;
+#X obj 133 17 vu 10 80 3-out-meter-R empty -1 -8 0 10 -66577 -1 0 0
+;
+#X obj 107 17 vu 10 80 3-out-meter-L empty -1 -8 0 10 -66577 -1 0 0
+;
+#X obj 110 101 vsl 30 7 0 100 0 0 3-out-mute 3-out-mute-r mute 4 4
+1 11 -262144 -262144 -1 0 1;
+#X obj 115 17 vsl 20 79 0.01 1 1 1 3-out-gain 3-out-gain-r 3 6 72 1
+14 -133184 -1 -1 7422 1;
+#X obj 183 17 vu 10 80 4-out-meter-R empty -1 -8 0 10 -66577 -1 0 0
+;
+#X obj 157 17 vu 10 80 4-out-meter-L empty -1 -8 0 10 -66577 -1 0 0
+;
+#X obj 160 101 vsl 30 7 0 100 0 0 4-out-mute 4-out-mute-r mute 4 4
+1 11 -262144 -262144 -1 0 1;
+#X obj 165 17 vsl 20 79 0.01 1 1 1 4-out-gain 4-out-gain-r 4 6 72 1
+14 -133184 -1 -1 7422 1;
+#X text 346 0 gain \, mute and meter for mixer outs;
+#X obj 241 0 mixer_output~ 1;
+#X obj 275 57 mixer_output~ 2;
+#X obj 309 114 mixer_output~ 3;
+#X obj 343 171 mixer_output~ 4;
+#X msg 329 334 \; pd dsp 1;
+#X msg 34 334 \; pd dsp 0;
+#X text 344 371 ON;
+#X text 54 371 OFF;
+#X obj 94 198 loadbang;
+#X msg 94 225 1;
+#X obj 94 252 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X msg 221 354 color 28 28 0;
+#X msg 114 354 color 0 0 28;
+#X obj 94 277 sel 0;
+#X obj 164 225 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 164 198 r audio-on;
+#X text 111 251 <-- audio on/off;
+#X obj 221 391 s audio-on-r;
+#X msg 124 334 label AUDIO_OFF;
+#X msg 231 334 label AUDIO_ON;
+#X connect 8 0 1 0;
+#X connect 8 0 2 0;
+#X connect 8 0 3 0;
+#X connect 8 0 4 0;
+#X connect 8 0 5 0;
+#X connect 8 0 6 0;
+#X connect 8 0 7 0;
+#X connect 10 0 13 0;
+#X connect 11 0 14 0;
+#X connect 42 0 22 0;
+#X connect 42 1 22 1;
+#X connect 43 0 22 2;
+#X connect 43 1 22 3;
+#X connect 44 0 22 4;
+#X connect 44 1 22 5;
+#X connect 45 0 22 6;
+#X connect 45 1 22 7;
+#X connect 50 0 51 0;
+#X connect 51 0 52 0;
+#X connect 52 0 55 0;
+#X connect 53 0 59 0;
+#X connect 54 0 59 0;
+#X connect 55 0 54 0;
+#X connect 55 0 60 0;
+#X connect 55 0 47 0;
+#X connect 55 1 53 0;
+#X connect 55 1 61 0;
+#X connect 55 1 46 0;
+#X connect 56 0 52 0;
+#X connect 57 0 56 0;
+#X connect 60 0 59 0;
+#X connect 61 0 59 0;
+#X coords 0 -1 1 1 206 130 1 0 0;

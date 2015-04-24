@@ -1,0 +1,34 @@
+#N canvas 0 0 1260 755 10;
+#X obj 50 468 mixer_8x1_stereo~;
+#X obj 51 656 s sOSC;
+#X msg 51 629 send /sys/prefix /pd_mlr;
+#X text 93 656 monomeserial prefix;
+#X obj 50 31 mlr_ui_sample 1;
+#X obj 50 -8 mlr_ui_group 0;
+#X obj 106 -8 mlr_ui_group 1;
+#X obj 162 -8 mlr_ui_group 2;
+#X obj 218 -8 mlr_ui_group 3;
+#X obj 274 -8 mlr_ui_group 4;
+#X obj 330 -8 mlr_ui_group 5;
+#X obj 386 -8 mlr_ui_group 6;
+#X obj 442 -8 mlr_ui_group 7;
+#X obj 50 422 vsl 35 12 0 127 0 0 mlr-save dummy save 7 6 1 12 -245500
+-245500 -1 0 1;
+#X obj 100 422 vsl 35 12 0 127 0 0 mlr-load dummy load 7 6 1 12 -245500
+-245500 -1 0 1;
+#X obj 50 83 mlr_ui_sample 2;
+#X obj 50 135 mlr_ui_sample 3;
+#X obj 50 187 mlr_ui_sample 4;
+#X obj 50 239 mlr_ui_sample 5;
+#X obj 50 291 mlr_ui_sample 6;
+#X obj 50 343 mlr_ui_sample 7;
+#X obj 510 31 mlr_ui_sample 9;
+#X obj 510 83 mlr_ui_sample 10;
+#X obj 510 135 mlr_ui_sample 11;
+#X obj 510 187 mlr_ui_sample 12;
+#X obj 510 239 mlr_ui_sample 13;
+#X obj 510 291 mlr_ui_sample 14;
+#X obj 510 343 mlr_ui_sample 15;
+#X obj 151 422 vsl 246 12 0 127 0 0 dummy load-filename --- 5 7 0 12
+-245500 -245500 -1 0 0;
+#X connect 2 0 1 0;

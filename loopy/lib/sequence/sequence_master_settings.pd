@@ -1,0 +1,26 @@
+#N canvas 501 176 467 772 10;
+#X obj 55 20 vsl 105 7 0 1 0 0 sequence-mode-ui sequence-mode-ui-r
+Button-ALL 2 4 1 12 -355 -355 -262144 0 1;
+#X obj 55 35 vsl 105 7 0 6 0 0 sequence-length-ui sequence-length-ui-r
+08_beats 2 4 1 12 -66577 -66577 -262144 0 1;
+#X obj 0 20 vsl 53 7 0 1 0 0 sequence-mode-ui sequence-mode-label INPUT
+2 4 1 12 -355 -355 -262144 0 1;
+#X obj 0 35 vsl 53 7 0 6 0 0 sequence-length-ui sequence-length-label
+LENGTH 2 4 1 12 -66577 -66577 -262144 0 1;
+#X obj 0 51 cnv 11 160 14 empty empty External_Audio 2 7 1 12 -13381
+-262144 0;
+#X obj 1 83 cnv 11 128 28 empty empty Latency_Shift_(ms) 2 7 1 12 -355
+-262144 0;
+#X obj 130 83 cnv 10 30 28 empty latency-ui-r 165 3 19 1 12 -355 -262144
+0;
+#X obj 1 68 cnv 11 50 12 empty empty Count-in 2 7 1 12 -66577 -262144
+0;
+#X obj 53 70 vsl 55 7 0 6 0 0 sequence-count-in-beats-ui sequence-count-in-beats-ui-r
+04_beats 3 4 1 12 -66577 -66577 -262144 0 1;
+#X obj 110 70 vsl 50 7 0 6 0 0 sequence-count-in-click-ui sequence-count-in-click-ui-r
+click_on 2 4 1 12 -66577 -66577 -262144 0 1;
+#X obj 0 1 cnv 14 160 14 empty empty Master_Settings 3 8 1 12 -13381
+-262144 0;
+#X obj 5 97 hsl 124 11 0 500 0 1 latency-slider latency-slider-r empty
+4 4 0 10 -162280 -1 -1 3800 1;
+#X coords 0 -1 1 1 160 111 1 0 0;

@@ -1,0 +1,60 @@
+loopy 2.0 release notes
+Bongo
+24 Jan, 2011
+
+IMPORTANT NOTE:
+In order to provide adequate performance, I intentionally did not include mlr-like time-stretching of samples to attempt to match tempo/length. SO loopy REALLY ONLY WORKS WELL IF ALL SAMPLES ARE OF THE SAME BPM AND CUT TO LENGTHS THAT ARE PERFECTLY CLEAN MULTIPLES OF ONE ANOTHER.
+
+
+loopy changes since V1.5
+
+- A major user interface overhaul provides a cleaner look more like the actual layout on the monome.
+
+- A new "sub-loop" capability has been added which allows a portion of a sample to be looped.
+
+- A new "repeat" feature has been added which allows a button press to be automatically repeated on a quantized beat, providing a stutter effect.
+
+- If loopy is set to Master to use its own internal beat clock, this clock is now reset with the 1st button press that plays audio starts after a "Fresh start." A "fresh start" occurs when loopy is first started, when a saved set is loaded, or when a 'stop all' is triggered.
+
+- Once a recorder is playing back a recorded loop (button presses or audio), a single tap now toggles between play & mute, rather than actually stopping playback as in previous versions. This way, toggling to play again results in keeping recorder playback in sync.
+
+- When a sample or row is loaded with a long file name, the name will be scrolled once for readability. It can be scrolled thereafter on demand by tapping the gray to the left of the “load” on the UI.
+
+- A 'stop all' can now be triggered directly from the monome by pressing and holding for 3 seconds the top left button. This will fade volume down smoothly, then stop all sample and recorder playback.
+
+- Quantization has been simplified and improved, using one metronome for master & one for each row. For each row, quantization = master mpb/quantize factor. Each metronome is restarted with master bpm bang to keep in sync - with internal or external master - and runs only if quantization is on for a given row.
+
+- All gain sliders are now logarithmic
+
+- adc input is now debounced within loopy, with a sensitivity = 0.05
+
+
+
+**********************************************
+
+loopy 1.5 release notes
+Bongo
+18 Nov, 2010
+
+IMPORTANT NOTE:
+In order to provide adequate performance, I intentionally did not include mlr-like time-stretching of samples to attempt to match tempo/length. SO loopy REALLY ONLY WORKS WELL IF ALL SAMPLES ARE OF THE SAME BPM AND CUT TO LENGTHS THAT ARE PERFECTLY CLEAN MULTIPLES OF ONE ANOTHER.
+
+
+loopy changes since V1.0
+
+- Multi-channel ouput
+overhaul of audio output section to allow sending each row output to one of four stereo outputs.
+
+- External audio recording
+Recorders can be set to record from up to 8 mono channels of external audio input, in addition to options for recording button presses or internal audio. Latency adjustment and monitor capabilities for external audio. Visual and audible count-in leading up to recording start, settable to 4, 8 or 16 beats.
+
+- Clock sync
+loopy can now sync clocks with another application, acting as either master or slave.
+
+- UI based playing of samples
+Loops can be now be played from ui by clicking sample filename for left-side clicks and bars across bottom of row for right-side clicks
+
+- Cross-fade added for momentary sample play mode, to eliminate clicks on start and stop.
+
+
+

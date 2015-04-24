@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>loopy V2.0 documentation</title>
+<style type="text/css">
+body {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+}
+.Header1 {
+	font-size: 14px;
+	font-weight: bold;
+	color: #00F;
+}
+.Header2 {
+	font-size: 12px;
+	font-style: italic;
+	font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+<h3 class="Header1">loopy V2.0</h3>
+<em>loopy</em> (adjective): 1) having or characterized by loops 2) crazy, bizarre
+<p>Bongo<br />
+  24 January 2011</p>
+<p><em>loopy</em> is a Pure Data based sample player for use with a monome combining the large sample bank capabilities of 64 Fingers with simple mlr-like sample cutting.</p>
+<p>In order to provide adequate performance, <em>loopy</em> intentionally does not include mlr-like time-stretching of samples to attempt to match tempo/length. SO <em>loopy</em> REALLY ONLY WORKS WELL IF ALL SAMPLES ARE OF THE SAME BPM AND CUT TO LENGTHS THAT ARE PERFECTLY CLEAN MULTIPLES OF THIS BPM AND ONE ANOTHER.</p>
+<p class="Header1">CONTENTS</p>
+<p><a href="#QuickStart">Quick Start</a></p>
+<p><a href="#Introduction">Introduction</a></p>
+<ul>
+  <li><a href="#OnScreenInterface">On-Screen Interface</a></li>
+  <li><a href="#Page">Page Left/Right</a></li>
+</ul>
+<p><a href="#Configuration">Configuration Settings</a></p>
+<ul>
+  <li><a href="#SyncOptions">Sync Options</a></li>
+  <li><a href="#Mixers">Mixers</a></li>
+</ul>
+<p><a href="#RowControls">Row Controls</a></p>
+<ul>
+  <li><a href="#RowMode">Row Mode</a></li>
+  <li><a href="#SampleMode">Sample Mode</a></li>
+  <li><a href="#SubLoop">Sub-Loops</a></li>
+</ul>
+<p><a href="#RecorderControls">Recorder Controls</a></p>
+<ul>
+  <li><a href="#RecorderQuickStart">Recorder Quick Start</a></li>
+  <li><a href="#RecorderSettings">Recorder Settings</a></li>
+  <li><a href="#SaveRecording">Save recording to disk or <em>loopy</em> sample bank</a></li>
+</ul>
+<p><br />
+</p>
+<span class="Header1"><a name="QuickStart" id="QuickStart"></a>QUICK START</span>
+<p>  IF AT ANY TIME YOU WANT TO STOP ALL SOUND, PRESS AND HOLD FOR 3 SECONDS THE TOP LEFT BUTTON ON THE MONOME OR CLICK THE BUTTON ON THE MAIN <em>loopy</em> SCREEN WHERE IT SAYS 'stop all.'</p>
+<ul>
+  <li> Select Audio setting... from the pd Media menu. Set output device 1 to your active sound device.</li>
+  <li> Select monome layout (64 or 128) on left side of the main <em>loopy</em> screen.</li>
+  <li> Click to send prefix setting to monomeserial (prefix is /loopy) on the main <em>loopy</em> screen.</li>
+  <li> Click 'load' to select audio file for sample 0 in row 1 (top left) on main <em>loopy</em> screen.</li>
+  <li> Press and hold leftmost button on second row of monome to begin playback. Release button to stop.</li>
+  <li>Click row mode 'single' for row 1 on right side of main <em>loopy</em> screen. Then click sample mode 'L' (for Loop) just above this. Tap and release leftmost button on second row of monome to begin playback. On 128 led's should sequence on right hand side as sample plays. On 64 tap top left button on monome to toggle to 'right' page, and led's in second row should sequence as sample plays.</li>
+  <li>Tap buttons in second row to to play (cut) from different points within the sample.</li>
+  <li><span class="list">On 64 tap top left button on monome to toggle to 'left' page. On 64 or 128 tap leftmost button in second row to stop sample play.</span><br />
+  </li>
+</ul>
+<p>&nbsp;</p>
+<p><span class="Header1"><a name="Introduction" id="Introduction"></a>INTRODUCTION</span><br />
+<em>loopy</em> is best used with a monome 128 in horizontal orientation, but can be used with a 64 as well. When used with a 128, the left half is used for the sample bank and the right half for sample cutting. When used with a 64, the top left button is used to toggle between two &quot;pages,&quot; one for the sample bank and the other for sample cutting.</p>
+<p>56 individual samples can be loaded into a grid of 7 rows by 8 columns. The top-most row on the monome (row 0) is used for paging and for pattern recorders.</p>
+<p> Pattern recorders can record button presses or audio.</p>
+<p>Each row can be set to play in &quot;multiple,&quot; &quot;single,&quot; or &quot;cue&quot; row mode (defined below). Settings for each row can also set each sample in the row to play in &quot;momentary,&quot; &quot;trigger&quot; or &quot;loop&quot; sample mode and to control quantization (also defined below). Sample  mode and quantization can also be set for each sample individually to override row settings.</p>
+<p>A &quot;sub-loop&quot; feature allows a portion of a sample to be looped. A &quot;repeat&quot; feature allows a button press to be automatically repeated on a quantized beat, providing a stutter effect.</p>
+<p>A sample bank and associated settings can be saved and recalled at the row level. A global save and load capability stores all samples and settings for all rows.</p>
+<p><span class="Header2"><a name="OnScreenInterface" id="OnScreenInterface"></a>ON-SCREEN INTERFACE</span><br />
+  <br />
+The <em>loopy</em> on-screen interface is used to load and save settings and samples, and to set row modes, sample modes, recorder modes and quantization.</p>
+<p>Selecting and triggering samples to play is typically done from the monome itself, though the on-screen interface can be used to simulate button presses by clicking on recorder file names to simulate tapping a recorder button, clicking on a sample file name to simulated a left page (see PAGE LEFT/RIGHT below) button tap and clicking on a progress indicator (at the bottom of a row) to simulate a right page button tap.</p>
+<p>The on-screen interface also simulates Monome LEDs by displaying selected samples and a progression across 8 steps of sample playback location.</p>
+<p>STOP_ALLClick to stop all samples - sends stop to every sample &amp; recorder.<br />
+CLEAR_LED Click to clear all LEDs - clears all monome/on-screen LEDs.<br />
+CLEAR _ALL Click to clear all samples - sends clear to every row and sample.</p>
+<p>loopy_brain - Click this box to open up all of the pd patches which comprise <em>loopy</em>.<br />
+</p>
+<p><span class="Header2"><a name="Page" id="Page"></a>PAGE LEFT/RIGHT</span><br />
+  <br />
+For purposes of simplifying the rest of this help file, reference will be made to the left or right side of the monome. For a horizontally oriented monome 128 this will refer to the left and right half of the monome grid. For a monome 64, the top left button is used to toggle between the left side (led off) and right side (led on).</p>
+<p><br />
+</p>
+<p class="Header1"><a name="Configuration" id="Configuration"></a>CONFIGURATION SETTINGS</p>
+<p>Configuration Save Current - Click to save all current configuration settings, including Auto-Load Set, Auto-Set Prefix, Monome layout, Sync option, BPM, Quantize, MicroFade, Repeat, and master settings for recorders. THESE SETTINGS WILL AUTOMATICALLY BE APPLIED ON SUBSEQUENT LAUNCH OF <em>loopy</em>.</p>
+<p>Sample Set save / load - Click to save current sample set or load previously saved sample set, including <br />
+  1) general configuration settings: monome layout, Sync option, BPM, Quantize, MicroFade, Repeat and mixer settings<br />
+  2) master recording settings<br />
+  3) for pattern recorder: recording length in beats and Button press or Audio mode (see Recorder section for detail on these options)<br />
+  4) for each row: row mode, sample mode, quantize (see Row section for more detail on these options)<br />
+  5) for each sample: audio file paths, sample mode, quantization on/off</p>
+<p>Auto-Load Set - Click to toggle ON/OFF. Setting to 'ON' will cause the sample set last saved to the <em>loopy</em> Config file to be automatically loaded when <em>loopy</em>  is launched. (see Save Current Config below)</p>
+<p>Auto-Set Prefix - Click to toggle ON/OFF. Setting to 'ON' will cause the monomeserial prefix of /loopy to be set automatically when <em>loopy</em>  is launched. Prefix can be set manually by clicking on the 'send /sys/prefix /loopy' message.</p>
+<p>Monome layout - Click on the desired monome layout - 64 or 128H(orizontal). When using a 64, click on 'L' or 'R' to select left or right pages.</p>
+<p class="Header2"><a name="SyncOptions" id="SyncOptions"></a>Sync Options</p>
+<p>Set beat clock sync option:</p>
+<p>* Master - Internal loopy Clock - <em>loopy</em> samples and recorders trigger based on <em>loopy</em>'s own metronome, set from the BPM on the main screen. <em>loopy</em> outputs standard midi clock messages (e.g., '248' every 1/24th beat). Note that this clock will be sync'ed with very first button press after <em>loopy</em> is first started, a new set is loaded, or 'stop all' is selected.</p>
+<p>* Slave - Ext Midi Clock (Win only) - THIS METHOD ONLY WORKS ON WINDOWS SYSTEMS. Set an external program to output midi clock messages, and set Pure Data for midi input from this source. <em>loopy</em>'s beat metronome sync's with the external source every 24 ticks, but uses locally set BPM and quantization to set the frequency of metronomes within <em>loopy</em>. <em>loopy</em>'s BPM can be calibrated based upon the external sync source by clicking 'Calibrate' (see BPM below).</p>
+<p>* Slave - Ext Midi Click Track - This method should work on all systems but requires setup of a midi 'click track' in an external program. Set the external midi track to output a midi 'note on' exactly on the beat, and set Pure Data for midi input from this source. <em>loopy</em>'s beat metronome sync's with the external source every time a midi 'note on' message is received, but uses locally set BPM and quantization to set the frequency of metronomes within <em>loopy</em>. <em>loopy</em>'s BPM can be calibrated based upon the external sync source by clicking 'Calibrate' (see BPM below).</p>
+<p>BPM - Set beats-per-minute tempo by clicking -4/-1/+1/+4. This setting will affect quantization and length of pattern recorders. To calibrate <em>loopy</em>'s BPM from an external syn if one of the Slave options is chosenc, click 'Calibrate.' <em>loopy</em> will time 16 beats and calculate beats per minute from this.</p>
+<p>Quantize - Set global quantize rate for monome button press input. 1/4 = 1 beat. Setting the global quantize rate sets every row quantize rate to this value. The global quantize rate can be overridden at the row level. Each monome button press which triggers sample play is held until the next quantum comes around. For example, if quantize is set to 1/4, a button press is held until the next beat, whereas if quantize is set to 1/16, a button press is held until the next quarter beat.</p>
+<p>MicroFade - Set time (ms) of volume fade out/fade in cross-fade when cutting or switching samples.</p>
+<p>Repeat - Set repeat frequency for <em>loopy</em>'s two repeater buttons.  As with Quantize 1/4 = 1 beat, so 1/8 = 1/2 beat, 1/16 = 1/4 beat, etc. By pressing and holding recorder buttons 6 or 7, the repeat  feature allows a button press to be automatically repeated on a quantized beat, providing a stutter effect. Repeate stops when either the repeat button or the sample slice button is released.</p>
+<p class="Header2"><a name="Mixers" id="Mixers"></a>Mixers</p>
+<p> * OUT 4 Stereo - Set volume levels for each of 4 stereo output channels. Each row can be mapped to one of these stereo output channels. Click to 'mute' each output channel, or 'mute all' to mute all output channels. Adjust 'Audio settings...' in the pd Media menu to define multiple audio outputs.</p>
+<p>* IN 8 Mono - Set gain for 8 mono input channels, each of which can be selected as inputs for loopy's recorders. Click the input channel number below the VU meter to monitor input audio. Adjust 'Audio settings...' in the pd Media menu to define audio input sources.</p>
+<p>&nbsp;</p>
+<p class="Header1"><a name="RowControls" id="RowControls"></a>ROW CONTROLS</p>
+<p>Output Channel - Click to choose stereo output channel 1, 2, 3 or 4 to which audio for this row will be sent.</p>
+<p>Load, Save - Click to load or save a row. Saved settings include row mode, sample mode, quantize and for each sample: audio file paths, sample mode, quantization on/off.</p>
+<p>Clear - Click to reset all row settings. Note this includes clearing all samples for this row.</p>
+<p>Quantize - Set quantize rate for the row, which overrides the global quanitzation setting. See further explanation in the Configuration Settings section of this help file.</p>
+<p>Stop all - Click to stop all samples playing in the row.</p>
+<p class="Header2"><a name="RowMode" id="RowMode"></a>ROW MODE</p>
+<p> For loopy sample rows - rows 1 thru 7 - each row can operate in one of three row modes:</p>
+<p>M =  multi<br />
+  In multi-mode, the left- and right-side butttons function identically; When a button is pushed in plays the associated sample according to the sample mode (momentary, trigger or loop - see below for more on this). Multiple samples can be playing at once in this mode. This is similar to the operation of the 64 fingers application.</p>
+<p>S =  single<br />
+  In single-mode, the left side buttons are used to select a sample to be played, while the right side buttons can be used to cut samples like mlr. Samples play according to the sample mode (momentary, trigger or loop - see below). Only one sample at a time can be selected on the left side. Pressing a sample button on the left immediately starts sample play. Pressing a button on the right plays the sample from the relative position associated with the button position (e.g. 1st button plays from beginning, 5th button starts play from 5/8ths of the way thru the sample).</p>
+<p>C = cue<br />
+  In cue-mode, similar to single mode, the left side buttons are used to select a sample to be played, while the right side buttons can be used to cut samples like mlr and samples play according to sample mode. The difference from single mode is that pushing a sample button on the left side only cues that sample to be played but does not start playing it. In this way, while one sample is playing, another can be cued to play next. The sample cued on the left side only plays once a sample cutting button is pressed on the right side.<br />
+</p>
+<p class="Header2"><a name="SampleMode" id="SampleMode"></a>SAMPLE MODE</p>
+<p> Samples can play in momentary (M), trigger (T) or loop (L) sample mode. Sample mode can be set for an entire row by clicking M, T or L in the purple row control area to the right of the row ui. Sample mode can be set for individual samples by clicking M, T or L for the sample.<br />
+</p>
+<p>MOMENTARY - Sample plays while a button is held, stopping when the button is released. By row-mode: </p>
+<p>* multi-mode - Sample plays/loops when the button for that sample is held down on either the right or left side, lighting both left- and right-side buttons. Play stops when button is released.</p>
+<p>* single-mode - Sample plays from start when left-side button is pressed and from corresponding position when right-side button is pressed, continuing to loop until the button is released. Sample led on left-side stays lit and right-side led's light in sequence while the sample is playing.</p>
+<p>* cue-mode - If a sample is selected on the left-side, sample plays from corresponding position when right-side button is pressed, continuing to loop until the button is released. Sample led on left-side stays lit and right-side led's light in sequence while the sample is playing.<br />
+</p>
+<p>TRIGGER - Sample plays while a button is held, playing until end of sample once the button is released (something of a 'one-shot' mode). By row-mode:</p>
+<p>* multi-mode - Sample plays/loops when the button for that sample is held down on either the right or left side, lighting both left- and right-side buttons. When button is released, play continues until the end of the sample, then stops.</p>
+<p>* single-mode - Sample plays from start when left-side button is pressed and from corresponding position when right-side button is pressed, continuing to loop until the button is released. When button is released, play continues until the end of the sample, then stops.</p>
+<p>* cue-mode - If a sample is selected on the left-side, sample plays from corresponding position when right-side button is pressed, continuing to loop until the button is released. When button is released, play continues until the end of the sample, then stops.<br />
+</p>
+<p>LOOP - Sample plays when a button is tapped, and is toggled off as described for each row-mode:</p>
+<p>* multi-mode - Sample plays/loops when sample button is tapped. Sample stops when button is tapped again.</p>
+<p>* single-mode - Sample plays from start when left-side button is tapped and from corresponding position when right-side button is tapped. Sample stops when left-side button is tapped again, or when another left-side button is tapped (which will stop the sample that had been playing and start playing the newly tapped one).</p>
+<p>* cue-mode - If a sample is selected on the left-side, sample plays from corresponding position when right-side button is pressed, continuing to loop until a) the left-side button is tapped again, resulting in no sample playing for this row; or b) another left-side sample button is tapped AND then a right-side button is tapped, resulting in a stop for the previous sample and playing of the newly selected sample.</p>
+<p><a name="SubLoop" id="SubLoop"></a><span class="Header2">SUB-LOOPS</span></p>
+<p>When a row mode is set to Single or Cue, <em>loopy</em> can be made to loop a portion of a sample. To choose the sub-loop, press and hold a right-side button for the desired sub-loop starting position then, while continuing to hold the first button, press and hold a second right-side button for the desired sub-loop ending position. Continue to hold both buttons until the entire sub-loop lights up on the monome, then release both buttons. This sub-loop will continue to play unitl another left- or right-side button is pressed in this row.<br />
+</p>
+<p>&nbsp;</p>
+<p class="Header1"><a name="RecorderControls" id="RecorderControls"></a>RECORDER CONTROLS</p>
+<p>Buttons 1 thru 7 in the top row (remember, the left-most button is 0) represent pattern or audio recorders.</p>
+<p class="Header2"><a name="RecorderQuickStart" id="RecorderQuickStart"></a>RECORDER QUICK START</p>
+<p>To begin recording, tap the recorder button once. Recorder LED will light without blinking. Recording begins with next button press. Recording ends the specified number of beats later.</p>
+<p>Playback begins automatically and immediately after the recording is finished, and the pattern recorder button will flash &quot;long on-short off.&quot; Tapping the pattern recorder button will toggle to mute playback and the pattern recorder button will flash &quot;short on-long off.&quot; Short single taps will continue to toggle between play/mute.</p>
+<p>To reset a pattern recorder, tap the pattern recorder button twice quickly, and the previously recorded pattern will stop playing and the LED will go off, indicating readiness to record. As above, tap once to enter record mode.</p>
+<p class="Header2"><a name="RecorderSettings" id="RecorderSettings"></a>RECORDER SETTINGS</p>
+<p>All recorder settings can be set individually or by changing master settings (top right on <em>loopy</em>'s main screen) for all recorders.</p>
+<p>* Input - Recorders can be set to record button presses from all rows (Buttons), button presses only for the row number = the recorder number (Button -  n), all internal audio (Audio - ALL), audio only for the row number = the recorder number (Audio - n), or external audio (Audio - EXT). Click purple input box to toggle input source.</p>
+<p>In 'Buttons' mode, only button presses which occur after recording has begun are recorded. Any samples already playing when recording begins continue playing but do not effect the recording. Playback begins automatically when the recording is finished and behaves as if buttons are being pressed on the monome.</p>
+<p>'Button row n' mode (e.g. Button row 3) is similar to 'Buttons' mode, except that only button presses in the specificed row are recorded.</p>
+<p>In 'Audio - ALL' mode, recording begins with the first button press following record mode, and all audio playing will be recorded as an audio file, stopping after the selected number of beats, <u>when all sample playback is stopped</u>. Playback begins automatically, but is playing back the recorded audio file and is independent of buttons pressed thereafter on the monome.</p>
+<p>In 'Audio - n' mode, recording begins with the first button press in the particular row being recorded following record mode, and all audio playing in the particular row will be recorded as an audio file, stopping after the selected number of beats, <u>when sample playback in that row only is stopped</u>. Playback begins automatically, but is playing back the recorded audio file and is independent of samples already playing in other rows or buttons pressed thereafter on the monome.</p>
+<p>In 'Audio - EXT' mode, recording begins after count-in (see below), and only external audio is recorded as an audio file, stopping after the selected number of beats. Playback begins automatically, but is playing back the recorded audio file and is independent of any samples already playing or buttons pressed thereafter on the monome. Up to 8 external audio channels may be available for recording, depending on your system and sound card/device. The two numbers to the right of 'Ext_In'  on the UI define which external audio channels go to the left and right channels of the recorder. Click these numbers to select channels.</p>
+<p>* Length - Recording length in beats is set by clicking, and toggles 1-2-4-8-16-32-64 beats. Clcik slowly, as this change takes a little time.</p>
+<p>* External Audio settings - Three additional settings are available for recording external audio, and apply to all recorders set to record external audio.</p>
+<p>Count-in beats - Click to set the number of count-in beats before recording starts; toggles between 4 and 8 beats.</p>
+<p>Count-in click - Click on ui to toggle count-in click on/off.</p>
+<p>Latency shift - To adjust for latency in the audio signal path from external audio sources, use the slider to adjust by 0-500 milliseconds. Use this adjustment to time align recording of external audio with internal sample playback. This may take some trial and error on each computer (165 ms seems to work best on my PC).</p>
+<p class="Header2"><a name="SaveRecording" id="SaveRecording"></a>SAVING/REUSING RECORDINGS</p>
+<p>Once a recorder slot had recorded audio (not buttons), the recording can be saved to disk by clicking 'save' on the ui. To move a recording to a sample bank location, click 'send' on the ui for the recorder, then click 'catch' on the ui for the sample.<br />
+</p>
+</body>
+</html>

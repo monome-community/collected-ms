@@ -1,0 +1,1 @@
+1 monome_type, 256;2 use_full_path_for_audio_files, 0;3 hints_enabled, 0;4 internal_beat_clock, 1;5 quantize_on, 1;6 npc_window_active_for_keyboard_input, 0;7 default_tempo, 120;8 default_track_length, 64;

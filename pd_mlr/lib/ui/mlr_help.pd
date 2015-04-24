@@ -1,0 +1,166 @@
+#N canvas 0 0 1263 818 10;
+#X text -763 -196 pd_mlr V0.3;
+#X text -763 -83 - Gwen for Axiome \, a Pure Data (pd) sample cutting
+application that taught me a lot about developing in pd.;
+#X text -763 19 http://post.monome.org/comments.php?DiscussionID=6339&page=1#Item_0)
+;
+#X text -763 -58 See: http://docs.monome.org/doku.php?id=app:axiome
+;
+#X text -763 -37 - Ben (ucacjbs on monome board) for his Tutorial:
+a basic MLR in PD \, in turn inspired by smioliolio's max mlr tutorial
+\, from which I learned the pd phasor object approach to sample cutting
+used here \, as well as a number of other techniques. See:;
+#X text -763 51 - Scott (BoxieBrown on monome board) for his review
+and suggestions for improvement.;
+#X text -763 83 - And of course Tehn for the origianl mlr.;
+#X text -763 -103 THANKS TO:;
+#X text -763 -93 **********;
+#X text -763 117 QUICK START;
+#X text -763 127 ***********;
+#X text -763 137 - select monome layout;
+#X text -763 147 - click to send prefix setting to monomeserial (prefix
+is /pd_mlr);
+#X text -763 167 - click 'load' to select audio file for top left sample
+row (#1);
+#X text -763 187 - press leftmost button on second row of monome to
+begin playback;
+#X text -763 237 ON-SCREEN INTERFACE;
+#X text -763 247 *******************;
+#X text -763 257 The pd_mlr on-screen interface is fully functional
+without using a monome \, though its use is intended for setup and
+testing rather than performance. Various on-screen settings are explained
+below.;
+#X text -763 307 Monome button presses are simulated by clicking a
+toggle box on-screen - clicking once toggles on \, corresponding to
+a monome button value of '1' \, and clicking again toggles off \, corresponding
+to a monome button press of '0'.;
+#X text -763 357 Monome LEDs are simulated on-screen by lighting purple
+behind the toggle box.;
+#X text 20 -143 CONFIGURATION SETTINGS;
+#X text 20 -133 **********************;
+#X text 19 -123 Mixer - Set volume levels for 4 or 8 groups and master
+volume. The number of group volume controls displayed depends on the
+monome layout selected.;
+#X text 20 -81 BPM - Set beats-per-minute tempo by clicking -4/-1/+1/+4.
+This setting will affect quantization \, calculated beats per sample
+\, and length of pattern recorders.;
+#X text 20 85 Quantize - Set quantize rate for monome button press
+input. 1/4 = 1 beat. Each monome button press in a sample row is held
+until the next quantum comes around. For example \, if quantize is
+set to 1/4 \, a button press is held until the next beat \, whereas
+if quantize is set to 1/16 \, a button press is held until the next
+quarter beat.;
+#X text 20 -39 Std Beats - Set standard beats \, used to set each loaded
+sample to nearest multiple of standard beats.;
+#X text 40 -8 sample beats = round [(original sample length (ms) /
+std beats (ms)] * std beats;
+#X text 40 24 sample speed = original sample length (ms) / (sample
+beats * ms per beat);
+#X text 40 54 current sample length = original sample length (ms) /
+sample speed;
+#X text 20 153 MicroFade - Set time (ms) of volume fade out/fade in
+cross-fade when cutting or switching samples.;
+#X text -370 -143 SAMPLE CONTROLS;
+#X text -370 -133 ***************;
+#X text -370 -123 load - Click to bring up open file dialog to select
+sample for this row.;
+#X text -370 -93 clear - Clear sample file and all settings for this
+row.;
+#X text -370 -73 stop - Stop sample play from the on-screen interface.
+Current sample remains loaded and settings are maintained.;
+#X text -370 -43 forward/reverse - Clicking on >F> will toggle to <R<
+and vice versa \, causing the sample to play forward or in reverse.
+;
+#X text -370 37 beats - When sample is loaded \, beats are calculated
+automatically as the nearest multiple of standard beats (see standard
+beats definition above). Speed is then calculated & set to adjust length
+of sample to this calculated number of beats. Beats can be increased/decreased
+by clicking +/-. This will change the speed and pitch proportionally.
+If speed is changed directly (see speed definition next) \, Changing
+beats thereafter will restore the beat & speed relationship to standard
+beats.;
+#X text -370 157 speed - Playback speed is set when sample is loaded
+(see beats definition previous). Speed can be changed manually by clicking
+on the value and dragging up/down to increase/decrease. Doing so "breaks"
+the beat & speed relationship to standard beats.;
+#X text -762 399 GROUP CONTROLS;
+#X text -762 409 **************;
+#X text -370 239 RECORDER CONTROLS;
+#X text -370 249 *****************;
+#X text -370 259 The rightmost 4 (64 or 128V) or 8 (128H or 256) buttons
+in the top row represent pattern recorders 1-4 or 1-8 \, respectively.
+;
+#X text -370 352 Playback begins automatically and immediately after
+the recording is finished \, and the pattern recorder button will flash
+"long on-short off." Tapping the pattern recorder button will toggle
+to stop playing and the pattern recorder button will flash "short on-long
+off." Short taps will continue to toggle between play/stop.;
+#X text -370 479 Set recording length in beats with the purple slider.
+;
+#X text -370 499 Click to toggle B/A to record button presses (B) or
+audio (A).;
+#X text -370 529 In button press mode \, only button presses which
+occur after recording has begun are recorded. Any samples already playing
+when recording begins continue playing but do not effect the recording.
+Playback begins automatically when the recording is finished and behaves
+as if buttons are being pressed on the monome.;
+#X text 20 187 Monome layout - Click on the desired monome layout -
+64 \, 128H (horizontal) \, 128V (vertical) or 256 Selection determines
+sample rows shown \, as well as the number of groups and pattern recorders
+available.;
+#X text 21 231 64 & 128V provide 4 groups + 4 recorders \; 128H & 256
+provide 8 groups + 8 recorders.;
+#X text 20 348 Auto-Load Set - Click to toggle ON/OFF. Setting to 'ON'
+will cause the sample set last saved to the pd_mlr Config file to be
+automatically loaded when pd_mlr application is launched. (see Save
+Current Config below);
+#X text 20 401 Click to stop all samples - sends stop to every sample
+row.;
+#X text 20 411 Click to clear all LEDs - clears all monome/on-screen
+LEDs.;
+#X text 20 421 Click to clear all samples - sends clear to every sample
+row.;
+#X text 20 451 Auto-Set Prefix - Click to toggle ON/OFF. Setting to
+'ON' will cause the monomeserial prefix of /pd_mlr to be set automatically
+when pd_mlr application is launched.;
+#X text 20 554 pd_mlr_brain - Click this box to open up all of the
+pd patches which comprise pd_mlr.;
+#X text -763 -166 3 Feb 2010;
+#X text -763 -176 Bongo;
+#X text -762 -143 pd_mlr is a sample-cutting application for use with
+a monome written in Pure Data (extended version required).;
+#X text -762 419 The leftmost 4 (64 or 128V) or 8 (128H or 256) buttons
+in the top row represent groups 0-3 or 0-7 \, respectively. Only one
+sample can play in a given group \, and choosing a sample in a group
+will cancel another sample playing in the same group. The group LED
+lights if a sample in the group is playing. Tap the group button to
+stop all samples in the group and clear the group LED.;
+#X text -370 -3 group - Map sample to group 0-3 (64 or 128V) or 0-7
+(128H or 256) by clicking in appropriate box (0-leftmost to 3/7-rightmost).
+;
+#X text 20 491 Configuration Save Current - Click to save all current
+configuration settings \, including BPM \, Std Beats \, Quantize \,
+MicroFade \, Monome layout \, Auto-Load Set \, last set loaded \, and
+Auto-Set Prefix. THESE SETTINGS WILL AUTOMATICALLY BE APPLIED ON SUBSEQUENT
+LAUNCH OF PD_MLR.;
+#X text 20 584 mlr_help - Click this box to open up pd_mlr documentation.
+;
+#X text 20 262 Sample Set save / load - Click to save current sample
+set or load previously saved sample set \, including 1) for each sample
+row: audio file paths \, group assignment \, beats and speed. 2) for
+each pattern recorder: recording length in beats and Button press or
+Audio mode. 3) general configuration settings: BPM \, Std Beats \,
+Quantize \, MicroFade \, Monome layout and mixer settings.;
+#X text -370 299 To begin recording \, tap the recorder button once.
+Recorder LED will light without blinking. Recording begins with next
+button press. Recording ends the specified number of beats later.;
+#X text -370 427 To reset in a pattern recorder position already loaded
+\, tap the pattern recorder button twice quickly \, and the LED will
+go off \, indicating readiness to record. As above \, tap once to enter
+record mode.;
+#X text -370 604 In audio mode \, while recording still begins with
+the first button press following record mode \, all audio playing will
+be recorded as an audio file \, stopping after the selected number
+of beats. Playback begins automatically \, but is playing back the
+recorded audio file and is independent of buttons pressed thereafter
+on the monome.;

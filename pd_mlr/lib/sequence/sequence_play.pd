@@ -1,0 +1,33 @@
+#N canvas 773 484 299 365 10;
+#X obj 41 139 bng 15 250 50 0 \$1-play-sequence \$1-play-sequence-r
+empty 17 7 0 10 -262144 -1 -1;
+#X text 39 123 play;
+#X obj 79 139 bng 15 250 50 0 \$1-stop-sequence \$1-stop-sequence-r
+empty 17 7 0 10 -262144 -1 -1;
+#X text 76 123 stop;
+#X obj 34 218 qlist;
+#X obj -6 53 float \$1;
+#X obj -6 107 prepend read;
+#X msg 41 191 bang;
+#X msg 79 191 rewind;
+#X obj -6 26 delay 1;
+#X obj -6 80 makefilename sequencer%d-play.txt;
+#X obj -6 255 r \$1-button;
+#X text 77 110 with timing;
+#X text 79 98 'play' file \,;
+#X obj 41 164 delay 1;
+#X obj -6 282 s smp-press;
+#X obj -6 -1 r \$1-recording-done;
+#X connect 0 0 14 0;
+#X connect 2 0 8 0;
+#X connect 4 1 0 0;
+#X connect 4 1 2 0;
+#X connect 5 0 10 0;
+#X connect 6 0 4 0;
+#X connect 7 0 4 0;
+#X connect 8 0 4 0;
+#X connect 9 0 5 0;
+#X connect 10 0 6 0;
+#X connect 11 0 15 0;
+#X connect 14 0 7 0;
+#X connect 16 0 9 0;

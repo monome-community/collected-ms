@@ -1,0 +1,45 @@
+#N canvas 706 341 330 470 10;
+#X obj 69 165 f \$1;
+#X msg 126 165 1;
+#X obj 69 128 t b b b;
+#X obj 69 278 pack f f f;
+#X obj 69 305 s matrix-transpose;
+#X msg 39 219 0;
+#X obj 12 192 t b b;
+#X obj 12 165 delay 5;
+#X obj 69 101 r \$1-sequence-name-ui;
+#X msg 97 165 0;
+#X obj 3 3 cnv 15 72 87 \$1-\$2-sample-ui-canvas \$1-\$2-sample-ui-canvas-r
+Ext_In 7 54 1 11 -208756 -1 0;
+#X obj 6 8 vsl 66 7 0 127 0 0 \$1-sequence-name-ui \$1-sequence-name-ui-r
+recorder1.wav 1 4 0 8 -262144 -262144 -33289 0 1;
+#X obj 42 23 vsl 30 7 0 127 0 0 \$1-sequence-send-ui \$1-sequence-send-ui-r
+send 4 4 1 11 -262144 -262144 -1 0 0;
+#X obj 6 67 vsl 66 9 0 6 0 0 \$1-sequence-length-ui \$1-sequence-length-ui-r
+08_beats 3 5 0 11 -66577 -66577 -262144 0 1;
+#X obj 6 82 hsl 67 8 0 127 0 0 \$1-sequence-progress \$1-sequence-progress-r
+empty 20 6 0 11 -166441 -1 -262144 0 1;
+#X obj 6 38 vsl 66 7 0 1 0 0 \$1-sequence-mode-ui \$1-sequence-mode-ui-r
+Button-ALL 3 4 0 10 -355 -355 -262144 0 1;
+#X obj 59 53 vsl 13 6 0 1 0 0 \$1-sequence-ext-R-ui \$1-sequence-ext-R-ui-r
+2 4 4 0 11 -355 -355 -262144 0 1;
+#X obj 42 53 vsl 13 6 0 1 0 0 \$1-sequence-ext-L-ui \$1-sequence-ext-L-ui-r
+1 4 4 0 11 -355 -355 -262144 0 1;
+#X obj 6 23 vsl 8 7 0 127 0 0 \$1-sequence-scroll \$1-sequence-scroll-r
+empty 2 4 1 11 -66577 -66577 -1 0 0;
+#X obj 12 23 vsl 28 7 0 127 0 0 \$1-sequence-save-ui \$1-sequence-save-ui-r
+save 2 4 1 11 -262144 -262144 -1 0 0;
+#X connect 0 0 3 0;
+#X connect 1 0 3 2;
+#X connect 2 0 0 0;
+#X connect 2 0 7 0;
+#X connect 2 1 9 0;
+#X connect 2 2 1 0;
+#X connect 3 0 4 0;
+#X connect 5 0 3 2;
+#X connect 6 0 3 0;
+#X connect 6 1 5 0;
+#X connect 7 0 6 0;
+#X connect 8 0 2 0;
+#X connect 9 0 3 1;
+#X coords 0 -1 1 1 78 93 2 0 0;

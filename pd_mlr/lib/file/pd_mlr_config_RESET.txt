@@ -1,0 +1,8 @@
+bpm 120;
+beats 8;
+quantize 2;
+microfade 3;
+monome 1;
+autofile 0;
+lastfile symbol;
+prefix 0;

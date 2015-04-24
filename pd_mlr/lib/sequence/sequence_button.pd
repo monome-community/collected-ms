@@ -1,0 +1,9 @@
+#N canvas 0 0 450 300 10;
+#X msg 100 51 1000;
+#X obj 60 136 s \$1-hold;
+#X obj 93 109 s \$1-tap;
+#X obj 60 82 push_n \$1;
+#X obj 47 20 r sequence-press;
+#X connect 0 0 3 1;
+#X connect 3 0 1 0;
+#X connect 3 2 2 0;

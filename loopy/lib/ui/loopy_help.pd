@@ -1,0 +1,283 @@
+#N canvas 17 4 1263 925 10;
+#X text -763 39 QUICK START;
+#X text -763 49 ***********;
+#X text -763 658 ON-SCREEN INTERFACE;
+#X text -763 668 *******************;
+#X text 350 -43 RECORDER CONTROLS;
+#X text 350 -33 *****************;
+#X text -763 -46 Bongo;
+#X text -762 -13 loopy is a Pure Data based sample player for use with
+a monome combining the large sample bank capabilities of 64 Fingers
+with simple mlr-like sample cutting.;
+#X text -763 59 - IF AT ANY TIME YOU WANT TO STOP ALL SOUND \, CLICK
+THE BUTTON ON THE MAIN loopy SCREEN WHERE IT SAYS 'click to stop all
+samples/recorders.';
+#X text -763 384 INTRODUCTION;
+#X text -763 394 ************;
+#X text -763 475 - 56 individual samples can be loaded into a grid
+of 7 rows by 8 columns. The top-most row on the monome (row 0) is used
+for paging and for pattern recorders. Pattern recorders can record
+button presses or audio.;
+#X text -764 524 - Each row can be set to play in "multiple \, " "single
+\, " or "cue" row mode (defined below). Settings for each row can also
+set each sample in the row to play in "momentary \, " "trigger" or
+"loop" sample mode and to control quantization (also defined below).
+Sample mode and quantization can also be set for each sample individually
+to override row settings.;
+#X text -763 606 - A sample bank and associated settings can be saved
+and recalled at the row level. A global save and load capability stores
+all samples and settings for all rows.;
+#X text -764 124 - Select monome layout (64 or 128) on the main loopy
+screen.;
+#X text -763 140 - Click to send prefix setting to monomeserial (prefix
+is /loopy) on the main loopy screen.;
+#X text -763 167 - Click 'load' to select audio file for sample 0 in
+row 1 on main loopy screen.;
+#X text -764 194 - Press and hold leftmost button on second row of
+monome to begin playback. release button to stop.;
+#X text -762 303 - Tap buttons in second row to cut sample to play
+from different points within the sample.;
+#X text -763 404 - loopy is best used with a monome 128 in horizontal
+orientation \, but can be used with a 64 as well. When used with a
+128 \, the left half is used for the sample bank and the right half
+for sample cutting. When used with a 64 \, the top left button is used
+to toggle between two "pages \, " one for the sample bank and the other
+for sample cutting.;
+#X text -763 678 - The loopy on-screen interface is used to load and
+save settings and samples \, and to set row modes \, sample modes and
+quantization.;
+#X text -763 716 - Selecting and triggering samples to play is done
+from the monome itself \, though the on-screen interface simulates
+Monome LEDs by displaying selected samples and a progression across
+8 steps of sample playback location.;
+#X text -390 -43 PAGE LEFT/RIGHT;
+#X text -390 -33 ***************;
+#X text -390 -23 For purposes of simplifying the rest of this help
+file \, reference will be made to the left or right side of the monome.
+For a horizontally oriented monome 128 this will refer to the left
+(columns 0-7) and right (columns 8-15) half of the monome grid. For
+a monome 64 \, the top left button is used to toggle between the left
+side (led off) and right side (led on).;
+#X text -390 73 ROW MODE;
+#X text -390 83 ********;
+#X text -390 93 For loopy sample rows - rows 1 thru 7 - each row can
+operate in one of three row modes:;
+#X text -390 131 In multi-mode \, the left- and right-side butttons
+function identically \; When a button is pushed in plays the associated
+sample according to the sample mode (momentary \, trigger or loop -
+see below for more on this). Multiple samples can be playing at once
+in this mode. This is similar to the operation of the 64 fingers application.
+;
+#X text -390 223 In single-mode \, the left side buttons are used to
+select a sample to be played \, while the right side buttons can be
+used to cut samples like mlr. Samples play according to the sample
+mode (momentary \, trigger or loop - see below). Only one sample at
+a time can be selected on the left side. Pressing a sample button on
+the left immediately starts sample play. Pressing a button on the right
+plays the sample from the relative position associated with the button
+position (e.g. 1st button plays from beginning \, 5th button starts
+play from 5/8ths of the way thru the sample).;
+#X text -390 349 In cue-mode \, similar to single mode \, the left
+side buttons are used to select a sample to be played \, while the
+right side buttons can be used to cut samples like mlr and samples
+play according to sample mode. The difference from single mode is that
+pushing a sample button on the left side only cues that sample to be
+played but does not start playing it. In this way \, while one sample
+is playing \, another can be cued to play next. The sample cued on
+the left side only plays once a sample cutting button is pressed o
+the right side.;
+#X text -390 120 * multi *;
+#X text -390 212 * single *;
+#X text -390 338 * cue *;
+#X text -389 477 CONFIGURATION SETTINGS;
+#X text -389 487 **********************;
+#X text -20 -43 SAMPLE MODE;
+#X text -20 -33 ***********;
+#X text -21 -23 Samples can play in momentary (M) \, trigger (T) or
+loop (L) sample mode. Sample mode can be set for an entire row by clicking
+M \, T or L in the grey sample_mode box to the left of the row ui.
+Sample mode can be set for individual samples by clicking M \, T or
+L for the sample.;
+#X text -20 76 * multi-mode - Sample plays/loops when the button for
+that sample is held down on either the right or left side \, lighting
+both left- and right-side buttons. Play stops when button is released.
+;
+#X text -20 123 * single-mode - Sample plays from start when left-side
+button is pressed and from corresponding position when right-side button
+is pressed \, continuing to loop until the button is released. Sample
+led on left-side stays lit and right-side led's light in sequence while
+the sample is playing.;
+#X text -20 192 * cue-mode - If a sample is selected on the left-side
+\, sample plays from corresponding position when right-side button
+is pressed \, continuing to loop until the button is released. Sample
+led on left-side stays lit and right-side led's light in sequence while
+the sample is playing.;
+#X text -20 292 * multi-mode - Sample plays/loops when the button for
+that sample is held down on either the right or left side \, lighting
+both left- and right-side buttons. When button is released \, play
+continues until the end of the sample \, then stops.;
+#X text -20 350 * single-mode - Sample plays from start when left-side
+button is pressed and from corresponding position when right-side button
+is pressed. When button is released \, play continues until the end
+of the sample \, then stops.;
+#X text -20 397 * cue-mode - If a sample is selected on the left-side
+\, sample plays from corresponding position when right-side button
+is pressed \, continuing to loop until the button is released. When
+button is released \, play continues until the end of the sample \,
+then stops.;
+#X text -20 497 * multi-mode - Sample plays/loops when sample button
+is tapped. Sample stops when button is tapped again.;
+#X text -20 522 * single-mode - Sample plays from start when left-side
+button is tapped and from corresponding position when right-side button
+is tapped. Sample stops when left-side button is tapped again \, or
+when another left-side button is tapped (which will stop the sample
+that had been playing and start playing the newly tapped one).;
+#X text -20 591 * cue-mode - If a sample is selected on the left-side
+\, sample plays from corresponding position when right-side button
+is pressed \, continuing to loop until a) the left-side button is tapped
+again \, resulting in no sample playing for this row \; or b) another
+left-side sample button is tapped AND then a right-side button is tapped
+\, resulting in a stop for the previous sample and playing of the newly
+selected sample.;
+#X text -20 41 MOMENTARY;
+#X text -20 51 Sample plays while a button is held \, stopping when
+the button is released. By row-mode:;
+#X text -20 256 TRIGGER;
+#X text -20 267 Sample plays while a button is held \, playing until
+end of sample once the button is released. By row-mode:;
+#X text -20 461 LOOP;
+#X text -390 497 Mixer - Set volume levels for 7 sample rows and master
+volume.;
+#X text -389 528 BPM - Set beats-per-minute tempo by clicking -4/-1/+1/+4.
+This setting will affect quantization and length of pattern recorders.
+;
+#X text -389 570 Quantize - Set quantize rate for monome button press
+input. 1/4 = 1 beat. Each monome button press which triggers sample
+play is held until the next quantum comes around. For example \, if
+quantize is set to 1/4 \, a button press is held until the next beat
+\, whereas if quantize is set to 1/16 \, a button press is held until
+the next quarter beat.;
+#X text -389 645 MicroFade - Set time (ms) of volume fade out/fade
+in cross-fade when cutting or switching samples.;
+#X text -389 676 Monome layout - Click on the desired monome layout
+- 64 or 128;
+#X text -389 707 Sample Set save / load - Click to save current sample
+set or load previously saved sample set \, including 1) for each row:
+row mode \, sample mode \, quantize. 2) for each sample: audio file
+paths \, sample mode \, quantization on/off. 3) for each pattern recorder:
+recording length in beats and Button press or Audio mode. 3) general
+configuration settings: BPM \, quantize \, microFade \, monome layout
+and mixer settings.;
+#X text -389 793 Auto-Load Set - Click to toggle ON/OFF. Setting to
+'ON' will cause the sample set last saved to the loopy Config file
+to be automatically loaded when loopy application is launched. (see
+Save Current Config below);
+#X text -389 846 Click to stop all samples - sends stop to every sample
+& recorder. Click to clear all LEDs - clears all monome/on-screen LEDs.
+Click to clear all samples - sends clear to every row and sample.;
+#X text -389 910 Auto-Set Prefix - Click to toggle ON/OFF. Setting
+to 'ON' will cause the monomeserial prefix of /loopy to be set automatically
+when loopy application is launched.;
+#X text -389 952 Configuration Save Current - Click to save all current
+configuration settings \, including BPM \, Quantize \, MicroFade \,
+Monome layout \, Auto-Load Set \, last set loaded \, and Auto-Set Prefix.
+THESE SETTINGS WILL AUTOMATICALLY BE APPLIED ON SUBSEQUENT LAUNCH OF
+loopy.;
+#X text -389 1016 loopy_brain - Click this box to open up all of the
+pd patches which comprise loopy.;
+#X text -389 1046 loopy_help - Click this box to open up loopy documentation.
+;
+#X text -763 -85 loopy (adjective): 1) having or characterized by loops
+2) crazy \, bizarre;
+#X text 350 -23 Buttons 1 thru 7 in the top row (remember \, the left-most
+button is 0) represent pattern recorders.;
+#X text 350 8 RECORDER QUICK START: To begin recording \, tap the recorder
+button once. Recorder LED will light without blinking. Recording begins
+with next button press. Recording ends the specified number of beats
+later.;
+#X text 350 61 Playback begins automatically and immediately after
+the recording is finished \, and the pattern recorder button will flash
+"long on-short off." Tapping the pattern recorder button will toggle
+to stop playing and the pattern recorder button will flash "short on-long
+off." Short single taps will continue to toggle between play/stop.
+;
+#X text 350 136 To reset a pattern recorder \, tap the pattern recorder
+button twice quickly \, and the previously recorded pattern will stop
+playing and the LED will go off \, indicating readiness to record.
+As above \, tap once to enter record mode.;
+#X text 350 200 RECORDER SETTINGS: All recorder settings can be set
+individually or by changing master settings for all recorders.;
+#X text 351 424 In 'Audio all rows' mode \, recording begins with the
+first button press following record mode \, and all audio playing will
+be recorded as an audio file \, stopping after the selected number
+of beats \, when all sample playback is stopped. Playback begins automatically
+\, but is playing back the recorded audio file and is independent of
+buttons pressed thereafter on the monome.;
+#X text 351 307 In 'Buttons' mode \, only button presses which occur
+after recording has begun are recorded. Any samples already playing
+when recording begins continue playing but do not effect the recording.
+Playback begins automatically when the recording is finished and behaves
+as if buttons are being pressed on the monome.;
+#X text 351 510 In 'Audio row n' mode \, recording begins with the
+first button press in the particular row being recorded following record
+mode \, all audio playing in the particular row will be recorded as
+an audio file \, stopping after the selected number of beats \, when
+sample playback in that row only is stopped. Playback begins automatically
+\, but is playing back the recorded audio file and is independent of
+samples already playing in other rows or buttons pressed thereafter
+on the monome.;
+#X text 351 748 * Length - Recording length in beats is set by clicking
+\, and toggles 1-2-4-8-16-32-64 beats. Clcik slowly \, as this change
+takes a little time.;
+#X text 351 790 *External Audio settings - Three additional settings
+are available for recording external audio \, and apply to all recorders
+set to record external audio.;
+#X text 352 863 Count-in click - Click on ui to toggle count-in click
+on/off.;
+#X text 352 905 Latency shift - To adjust for latency in the audio
+signal path from external audio sources \, use the slider to adjust
+by 0-500 milliseconds. Use this adjustment to time align recording
+of external audio with internal sample playback. This may take some
+trial and error on each computer (165 ms seems to work best on my PC).
+;
+#X text 352 980 SAVING/REUSING RECORDINGS: Once a recorder slot had
+recorded audio (not buttons) \, the recording can be saved to disk
+by clicking 'save' on the ui. To move a recording to a sample bank
+location \, click 'send' on the ui for the recorder \, then click 'catch'
+on the ui for the sample.;
+#X text -20 472 Sample plays when a button is tapped \, and is toggled
+off as described for each row-mode:;
+#X text -763 330 - On 64 tap top left button on monome to toggle to
+'left' page. On 64 or 128 tap leftmost button in second row to stop
+sample play.;
+#X text -763 221 - Click row mode 'single' for row 1 on main loopy
+screen. then click sample mode 'L' (for Loop) just below this. Tap
+and release leftmost button on second row of monome to begin playback.
+On 128 led's should sequence on right hand side as sample plays. On
+64 tap top left button on monome to toggle to 'right' page \, and led's
+in second row should sequence as sample plays.;
+#X text 352 832 Count-in beats - Click to set the number of count-in
+beats before recording starts \; toggles between 4 and 8 beats.;
+#X text -764 97 - Select Audio setting... from the pd Media menu. Set
+output device 1 to your active sound device.;
+#X text 351 618 In 'Audio external' mode \, recording begins after
+count-in (see below) \, and only external audio is recorded as an audio
+file \, stopping after the selected number of beats. Playback begins
+automatically \, but is playing back the recorded audio file and is
+independent of any samples already playing or buttons pressed thereafter
+on the monome. Up to 8 external audio channels may be available for
+recording \, depending on your system and sound card/device. The two
+numbers after recorder input and before # of beats on the UI define
+which external audio channels go to the left and right channels of
+the recorder.;
+#X text 351 232 * Input - Recorders can be set to record button presses
+from all rows (Buttons) \, button presses only for the row number =
+the recorder number (Button row n) \, all internal audio (Audio all
+rows) \, audio only for the row number = the recorder number (Audio
+row n) \, or external audio (Audio external). Click input source to
+toggle.;
+#X text 351 382 'Button row n' mode (e.g. Button row 3) is similar
+to 'Buttons' mode \, except that only button presses in the specificed
+row are recorded.;
+#X text -763 -96 loopy V1.3;
+#X text -763 -36 2 November 2010;

@@ -1,0 +1,7 @@
+#N canvas 29 600 450 300 10;
+#X obj 16 73 sequence_record_button \$1;
+#X obj 16 100 sequence_play_button \$1;
+#X obj 16 46 sequence_led \$1;
+#X obj 196 73 sequence_record_audio \$1;
+#X obj 196 100 sequence_play_audio \$1;
+#X obj 16 19 sequence_ctl \$1;

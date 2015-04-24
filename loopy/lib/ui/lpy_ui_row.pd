@@ -1,0 +1,319 @@
+#N canvas 0 0 1280 854 10;
+#X obj 131 343 loadbang;
+#X obj 10 146 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 10 225 bang;
+#X obj 10 252 pipe 200;
+#X obj 0 119 r \$1-row-load-ui;
+#X obj 10 171 s \$1-row-load;
+#X obj 0 306 s \$1-row-load-ui-r;
+#X obj 130 146 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 130 225 bang;
+#X obj 130 252 pipe 200;
+#X obj 250 146 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 250 225 bang;
+#X obj 250 252 pipe 200;
+#X obj 394 146 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 394 225 bang;
+#X obj 394 252 pipe 200;
+#X msg 384 198 color 13 13 12;
+#X obj 384 119 r \$1-row-stop-ui;
+#X obj 394 171 s \$1-row-stop;
+#X obj 384 306 s \$1-row-stop-ui-r;
+#X obj 120 119 r \$1-row-save-ui;
+#X obj 130 171 s \$1-row-save;
+#X obj 120 306 s \$1-row-save-ui-r;
+#X obj 240 119 r \$1-row-clear-ui;
+#X obj 250 171 s \$1-row-clear;
+#X obj 240 306 s \$1-row-clear-ui-r;
+#X obj 504 119 r \$1-gain;
+#X msg 504 146 set \$1;
+#X obj 504 169 s \$1-gain-r;
+#X obj 0 514 hradio 30 1 0 3 \$1-row-mode \$1-row-mode-r ROW:_cue/single/multi
+4 36 0 10 -262144 -1 -1 2;
+#X obj 0 373 r \$1-row-cue;
+#X obj 10 420 r \$1-row-single;
+#X obj 20 467 r \$1-row-multi;
+#X msg 0 393 0;
+#X msg 10 440 1;
+#X msg 20 487 2;
+#X obj 0 726 s \$1-row-cue-r;
+#X obj 21 699 s \$1-row-single-r;
+#X obj 42 672 s \$1-row-multi-r;
+#X obj 0 564 t f b b;
+#X obj 0 645 route 0 1 2;
+#X obj 0 618 list;
+#X obj 210 514 hradio 30 1 0 3 \$1-sample-mode \$1-sample-mode-r ROW:_momentary/trigger/loop
+4 36 0 10 -262144 -1 -1 0;
+#X msg 210 393 0;
+#X msg 220 440 1;
+#X msg 230 487 2;
+#X obj 210 564 t f b b;
+#X obj 210 645 route 0 1 2;
+#X obj 210 618 list;
+#X obj 210 373 r \$1-row-momentary;
+#X obj 220 420 r \$1-row-trigger;
+#X obj 230 467 r \$1-row-loop;
+#X obj 210 726 s \$1-row-momentary-r;
+#X obj 231 699 s \$1-row-trigger-r;
+#X obj 252 672 s \$1-row-loop-r;
+#X obj 0 0 lpy_ui_sample 0 \$1;
+#X obj 81 85 vsl 78 7 0 127 0 0 \$1-row-led-1 \$1-row-led-1-r empty
+0 -9 0 10 -233017 -233017 -33289 0 1;
+#X obj 0 85 vsl 78 7 0 127 0 0 \$1-row-led-0 \$1-row-led-0-r empty
+0 -9 0 10 -233017 -233017 -33289 0 1;
+#X obj 243 85 vsl 78 7 0 127 0 0 \$1-row-led-3 \$1-row-led-3-r empty
+0 -9 0 10 -233017 -233017 -33289 0 1;
+#X obj 162 85 vsl 78 7 0 127 0 0 \$1-row-led-2 \$1-row-led-2-r empty
+0 -9 0 10 -233017 -233017 -33289 0 1;
+#X obj 405 85 vsl 78 7 0 127 0 0 \$1-row-led-5 \$1-row-led-5-r empty
+0 -9 0 10 -233017 -233017 -33289 0 1;
+#X obj 324 85 vsl 78 7 0 127 0 0 \$1-row-led-4 \$1-row-led-4-r empty
+0 -9 0 10 -233017 -233017 -33289 0 1;
+#X obj 567 85 vsl 78 7 0 127 0 0 \$1-row-led-7 \$1-row-led-7-r empty
+0 -9 0 10 -233017 -233017 -33289 0 1;
+#X obj 486 85 vsl 78 7 0 127 0 0 \$1-row-led-6 \$1-row-led-6-r empty
+0 -9 0 10 -233017 -233017 -33289 0 1;
+#X obj 733 370 r \$1-row-led-0;
+#X obj 761 633 f \$1;
+#X msg 733 390 0;
+#X obj 733 690 pack f f f;
+#X obj 733 633 + 8;
+#X msg 790 633 1;
+#X obj 733 606 t f b b;
+#X msg 855 660 0;
+#X obj 828 633 t b b;
+#X floatatom 733 576 5 0 0 0 - - -;
+#X obj 763 390 r \$1-row-led-1;
+#X msg 763 410 1;
+#X msg 793 430 2;
+#X msg 823 450 3;
+#X obj 793 410 r \$1-row-led-2;
+#X obj 823 430 r \$1-row-led-3;
+#X msg 853 470 4;
+#X msg 883 490 5;
+#X msg 913 510 6;
+#X msg 943 530 7;
+#X obj 943 510 r \$1-row-led-7;
+#X obj 913 490 r \$1-row-led-6;
+#X obj 883 470 r \$1-row-led-5;
+#X obj 853 450 r \$1-row-led-4;
+#X obj 733 717 s matrix-transpose;
+#X obj 828 606 pipe 5;
+#X msg 19 591 color 28 28 0;
+#X msg 229 591 color 28 28 0;
+#X obj 657 3 cnv 15 160 92 \$1-row-ui-canvas \$1-row-ui-canvas-r empty
+2 12 1 14 -104448 -262144 0;
+#X obj 660 9 vsl 100 9 0 127 0 0 dummy \$1-row-filename-display ---
+1 5 0 8 -262144 -262144 -1 0 1;
+#X obj 698 26 vsl 30 9 0 127 0 0 \$1-row-save-ui \$1-row-save-ui-r
+save 3 5 1 11 -262144 -262144 -33289 0 0;
+#X obj 781 9 vu 12 80 \$1-meter-R empty -1 -8 0 10 -1 -1 0 0;
+#X obj 765 9 vu 12 80 \$1-meter-L empty -1 -8 0 10 -1 -1 0 0;
+#X obj 774 9 vsl 10 79 0.01 1 1 1 \$1-gain \$1-gain-r empty -5 86 1
+10 -99865 -261234 -1 7422 1;
+#X obj 730 26 vsl 30 9 0 127 0 0 \$1-row-clear-ui \$1-row-clear-ui-r
+clear 4 5 1 11 -262144 -262144 -33289 0 0;
+#X obj 728 61 vsl 32 9 0 127 0 0 \$1-row-stop-ui \$1-row-stop-ui-r
+STOP 2 5 0 11 -261689 -261689 -33289 0 1;
+#X obj 660 61 vsl 20 9 0 1 0 0 \$1-row-momentary \$1-row-momentary-r
+M 7 5 1 11 -355 -355 -262144 0 1;
+#X obj 683 61 vsl 20 9 0 1 0 0 \$1-row-trigger \$1-row-trigger-r T
+8 5 1 11 -262144 -262144 -33289 0 1;
+#X obj 706 61 vsl 20 9 0 1 0 0 \$1-row-loop \$1-row-loop-r L 8 5 1
+11 -262144 -262144 -33289 0 1;
+#X obj 660 79 vsl 32 9 0 1 0 0 \$1-row-cue \$1-row-cue-r cue 8 5 1
+11 -262144 -262144 -33289 0 1;
+#X obj 694 79 vsl 32 9 0 1 0 0 \$1-row-single \$1-row-single-r single
+3 5 1 11 -262144 -262144 -33289 0 1;
+#X obj 728 79 vsl 32 9 0 1 0 0 \$1-row-multi \$1-row-multi-r multi
+6 5 1 11 -355 -355 -262144 0 1;
+#X obj 728 43 vsl 32 9 0 4 0 0 \$1-row-quantize-s \$1-row-quantize-r
+1/16 2 5 0 11 -355 -355 -262144 0 1;
+#X obj 660 41 cnv 12 67 14 empty \$1-row-quantize-label-r quantize
+7 7 0 11 -66577 -262144 0;
+#X msg 80 645 color 0 0 12;
+#X msg 290 645 color 0 0 12;
+#X msg 250 279 color 0 0 12;
+#X msg 130 279 color 0 0 12;
+#X msg 10 279 color 0 0 12;
+#X msg 240 198 color 28 28 0;
+#X msg 120 198 color 28 28 0;
+#X msg 0 198 color 28 28 0;
+#X msg 394 279 color 3 3 12;
+#X msg 423 420 0;
+#X msg 453 440 1;
+#X msg 483 460 2;
+#X msg 513 480 3;
+#X obj 423 400 r \$1-row-output-1;
+#X obj 453 420 r \$1-row-output-2;
+#X obj 483 440 r \$1-row-output-3;
+#X obj 513 460 r \$1-row-output-4;
+#X obj 413 514 hradio 30 1 0 4 \$1-row-output-channel \$1-row-output-channel-r
+ROW:_output_channel_send_to_mixer_control 4 36 0 10 -262144 -1 -1 0
+;
+#X obj 413 373 r \$1-row-output-load;
+#X text 538 366 receive row output channel;
+#X text 538 376 from config or saved set;
+#X obj 413 564 t f b b;
+#X obj 413 618 list;
+#X msg 432 591 color 28 28 0;
+#X msg 523 645 color 0 0 12;
+#X obj 413 645 route 0 1 2 3;
+#X obj 413 732 s \$1-row-output-1-r;
+#X obj 431 712 s \$1-row-output-2-r;
+#X obj 450 692 s \$1-row-output-3-r;
+#X obj 469 672 s \$1-row-output-4-r;
+#X obj 798 32 vsl 16 11 0 1 0 0 \$1-row-output-2 \$1-row-output-2-r
+2 6 6 1 11 -262144 -262144 -33289 0 1;
+#X obj 798 54 vsl 16 11 0 1 0 0 \$1-row-output-3 \$1-row-output-3-r
+3 6 6 1 11 -262144 -262144 -33289 0 1;
+#X obj 798 77 vsl 16 11 0 1 0 0 \$1-row-output-4 \$1-row-output-4-r
+4 6 6 1 11 -262144 -262144 -33289 0 1;
+#X obj 798 9 vsl 16 11 0 1 0 0 \$1-row-output-1 \$1-row-output-1-r
+1 6 6 1 11 -355 -355 -262144 0 1;
+#X text 584 119 quantize ui handled in lpy_row_quantize;
+#X text 584 129 sub-patch within lpy_row.pd;
+#X obj 835 29 s \$1-row-ui-canvas-r;
+#X msg 835 2 color 28 0;
+#X obj 81 0 lpy_ui_sample 1 \$1;
+#X obj 162 0 lpy_ui_sample 2 \$1;
+#X obj 243 0 lpy_ui_sample 3 \$1;
+#X obj 324 0 lpy_ui_sample 4 \$1;
+#X obj 405 0 lpy_ui_sample 5 \$1;
+#X obj 486 0 lpy_ui_sample 6 \$1;
+#X obj 567 0 lpy_ui_sample 7 \$1;
+#X obj 660 26 vsl 8 9 0 127 0 0 \$1-row-scroll \$1-row-scroll-r empty
+5 5 1 11 -66577 -66577 -33289 0 0;
+#X obj 666 26 vsl 30 9 0 127 0 0 \$1-row-load-ui \$1-row-load-ui-r
+load 5 5 1 11 -262144 -262144 -33289 0 0;
+#X connect 0 0 43 0;
+#X connect 0 0 35 0;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 112 0;
+#X connect 4 0 1 0;
+#X connect 4 0 115 0;
+#X connect 7 0 21 0;
+#X connect 8 0 9 0;
+#X connect 9 0 111 0;
+#X connect 10 0 24 0;
+#X connect 11 0 12 0;
+#X connect 12 0 110 0;
+#X connect 13 0 18 0;
+#X connect 14 0 15 0;
+#X connect 15 0 116 0;
+#X connect 16 0 14 0;
+#X connect 16 0 19 0;
+#X connect 17 0 13 0;
+#X connect 17 0 16 0;
+#X connect 20 0 7 0;
+#X connect 20 0 114 0;
+#X connect 23 0 10 0;
+#X connect 23 0 113 0;
+#X connect 26 0 27 0;
+#X connect 27 0 28 0;
+#X connect 29 0 39 0;
+#X connect 30 0 33 0;
+#X connect 31 0 34 0;
+#X connect 32 0 35 0;
+#X connect 33 0 29 0;
+#X connect 34 0 29 0;
+#X connect 35 0 29 0;
+#X connect 39 0 41 0;
+#X connect 39 1 90 0;
+#X connect 39 2 108 0;
+#X connect 40 0 36 0;
+#X connect 40 1 37 0;
+#X connect 40 2 38 0;
+#X connect 41 0 40 0;
+#X connect 42 0 46 0;
+#X connect 43 0 42 0;
+#X connect 43 0 125 0;
+#X connect 44 0 42 0;
+#X connect 45 0 42 0;
+#X connect 46 0 48 0;
+#X connect 46 1 91 0;
+#X connect 46 2 109 0;
+#X connect 47 0 52 0;
+#X connect 47 1 53 0;
+#X connect 47 2 54 0;
+#X connect 48 0 47 0;
+#X connect 49 0 43 0;
+#X connect 50 0 44 0;
+#X connect 51 0 45 0;
+#X connect 64 0 66 0;
+#X connect 65 0 67 1;
+#X connect 66 0 73 0;
+#X connect 67 0 88 0;
+#X connect 68 0 67 0;
+#X connect 69 0 67 2;
+#X connect 70 0 68 0;
+#X connect 70 1 65 0;
+#X connect 70 2 69 0;
+#X connect 71 0 67 2;
+#X connect 72 0 67 0;
+#X connect 72 1 71 0;
+#X connect 73 0 70 0;
+#X connect 73 0 89 0;
+#X connect 74 0 75 0;
+#X connect 75 0 73 0;
+#X connect 76 0 73 0;
+#X connect 77 0 73 0;
+#X connect 78 0 76 0;
+#X connect 79 0 77 0;
+#X connect 80 0 73 0;
+#X connect 81 0 73 0;
+#X connect 82 0 73 0;
+#X connect 83 0 73 0;
+#X connect 84 0 83 0;
+#X connect 85 0 82 0;
+#X connect 86 0 81 0;
+#X connect 87 0 80 0;
+#X connect 89 0 72 0;
+#X connect 90 0 41 1;
+#X connect 91 0 48 1;
+#X connect 108 0 36 0;
+#X connect 108 0 37 0;
+#X connect 108 0 38 0;
+#X connect 109 0 52 0;
+#X connect 109 0 53 0;
+#X connect 109 0 54 0;
+#X connect 110 0 25 0;
+#X connect 111 0 22 0;
+#X connect 112 0 6 0;
+#X connect 113 0 11 0;
+#X connect 113 0 25 0;
+#X connect 114 0 8 0;
+#X connect 114 0 22 0;
+#X connect 115 0 2 0;
+#X connect 115 0 6 0;
+#X connect 116 0 19 0;
+#X connect 117 0 125 0;
+#X connect 118 0 125 0;
+#X connect 119 0 125 0;
+#X connect 120 0 125 0;
+#X connect 121 0 117 0;
+#X connect 122 0 118 0;
+#X connect 123 0 119 0;
+#X connect 124 0 120 0;
+#X connect 125 0 129 0;
+#X connect 126 0 125 0;
+#X connect 129 0 130 0;
+#X connect 129 1 131 0;
+#X connect 129 2 132 0;
+#X connect 130 0 133 0;
+#X connect 131 0 130 1;
+#X connect 132 0 134 0;
+#X connect 132 0 135 0;
+#X connect 132 0 136 0;
+#X connect 132 0 137 0;
+#X connect 133 0 134 0;
+#X connect 133 1 135 0;
+#X connect 133 2 136 0;
+#X connect 133 3 137 0;
+#X connect 145 0 144 0;
+#X coords 0 0 1 1 820 98 1 0 0;

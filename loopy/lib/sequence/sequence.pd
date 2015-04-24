@@ -1,0 +1,11 @@
+#N canvas 29 556 450 344 10;
+#X obj 16 284 sequence_send_audio \$1;
+#X obj 16 93 sequence_progress \$1;
+#X obj 16 264 sequence_save_audio \$1;
+#X obj 16 197 sequence_record_audio \$1;
+#X obj 169 197 sequence_external_audio \$1;
+#X obj 16 217 sequence_play_audio \$1;
+#X obj 16 130 sequence_record_button \$1;
+#X obj 16 150 sequence_play_button \$1;
+#X obj 16 19 sequence_ctl \$1;
+#X obj 16 56 sequence_led \$1;

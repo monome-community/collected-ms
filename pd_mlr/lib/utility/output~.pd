@@ -1,0 +1,17 @@
+#N canvas 222 412 291 238 10;
+#X obj 149 65 line~;
+#X obj 46 132 *~;
+#X obj 149 38 pack 0 50;
+#X obj 7 132 *~;
+#X obj 7 204 dac~;
+#X obj 16 38 catch~ masterright;
+#X obj 6 11 catch~ masterleft;
+#X obj 149 11 r master-gain;
+#X connect 0 0 1 1;
+#X connect 0 0 3 1;
+#X connect 1 0 4 1;
+#X connect 2 0 0 0;
+#X connect 3 0 4 0;
+#X connect 5 0 1 0;
+#X connect 6 0 3 0;
+#X connect 7 0 2 0;
